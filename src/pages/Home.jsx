@@ -13,11 +13,11 @@ export default function Home() {
   return (
     <div>
       {/* ─── HERO ────────────────────────────────────── */}
-      <section style={hero.section}>
+      <section style={hero.section} className="home-hero-section">
         <div style={hero.overlay} />
         <div style={hero.content}>
           <div style={hero.badge}>🏨 Trusted by Hilton Kuala Lumpur</div>
-          <h1 style={hero.h1}>
+          <h1 style={hero.h1} className="hero-h1">
             Expert Laundry &amp;<br />Engineering Services
           </h1>
           <p style={hero.sub}>
@@ -36,7 +36,7 @@ export default function Home() {
         </div>
 
         {/* floating stats card */}
-        <div style={hero.statsCard}>
+        <div style={hero.statsCard} className="home-stats-card">
           <div style={hero.statsTitle}>Hilton KL Account</div>
           <div style={hero.statRow}>
             <span style={hero.statLabel}>Outstanding</span>
@@ -101,7 +101,7 @@ export default function Home() {
       {/* ─── CLIENT FEATURE ──────────────────────────── */}
       <section className="section" style={{ background: '#fff' }}>
         <div className="container">
-          <div style={clientSection}>
+          <div style={clientSection} className="home-client-grid">
             <div>
               <p style={{ color: '#c8993a', fontWeight: 700, fontSize: '0.8rem', letterSpacing: 1, textTransform: 'uppercase', marginBottom: 8 }}>Key Client</p>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#1a3c6e', marginBottom: 16 }}>
@@ -195,7 +195,6 @@ const servBadge = { padding: '3px 10px', borderRadius: 20, fontSize: '0.72rem', 
 
 const clientSection = {
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
   gap: 60,
   alignItems: 'center',
 }

@@ -61,7 +61,7 @@ export default function Quotations() {
         <div className="container" style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 12 }}>
           <div>
             <p style={breadcrumb}>Home / Quotations</p>
-            <h1 style={pageTitle}>Quotations</h1>
+            <h1 style={pageTitle} className="page-title">Quotations</h1>
             <p style={pageSub}>All quotations — Malaysia &amp; India entities</p>
           </div>
           <Link to="/quotations/new" style={newBtn}>➕ New Quotation</Link>

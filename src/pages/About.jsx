@@ -12,7 +12,7 @@ export default function About() {
         <div style={pageOverlay} />
         <div className="container" style={{ position: 'relative' }}>
           <p style={breadcrumb}>Home / About</p>
-          <h1 style={pageTitle}>About Best Sun Tech Engineering</h1>
+          <h1 style={pageTitle} className="page-title">About Best Sun Tech Engineering</h1>
           <p style={pageSub}>Your trusted engineering partner for hospitality laundry systems</p>
         </div>
       </div>
@@ -20,7 +20,7 @@ export default function About() {
       <div className="container" style={{ padding: '60px 24px' }}>
 
         {/* Company overview */}
-        <div style={twoCol}>
+        <div style={twoCol} className="about-two-col">
           <div>
             <span style={tag}>Company Overview</span>
             <h2 style={sectionH2}>Who We Are</h2>
@@ -31,7 +31,7 @@ export default function About() {
               We hold SST registration and issue compliant e-invoices for all government and
               corporate clients.
             </p>
-            <div style={highlights}>
+            <div style={highlights} className="about-highlights">
               {[
                 ['🏢', 'Established', provider.established],
                 ['📋', 'BRN', provider.brn],
@@ -79,7 +79,7 @@ export default function About() {
             primary client. We manage all laundry equipment at their Level 7 laundry facility,
             responding to both scheduled maintenance and emergency breakdown calls.
           </p>
-          <div style={twoColEqual}>
+          <div style={twoColEqual} className="about-two-col-equal">
             <div style={infoCard}>
               <h3 style={cardTitle}>Client Details</h3>
               <div style={infoRow}><span style={infoLabel}>Company</span><span style={infoVal}>{client.name}</span></div>
@@ -143,13 +143,13 @@ const breadcrumb = { color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', marginB
 const pageTitle = { color: '#fff', fontSize: '2.5rem', fontWeight: 900, marginBottom: 10 }
 const pageSub = { color: 'rgba(255,255,255,0.7)', fontSize: '1rem' }
 
-const twoCol = { display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 56, alignItems: 'start' }
-const twoColEqual = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }
+const twoCol = { display: 'grid', gap: 56, alignItems: 'start' }
+const twoColEqual = { display: 'grid', gap: 32 }
 const tag = { display: 'inline-block', background: 'rgba(200,153,58,0.12)', color: '#c8993a', padding: '4px 12px', borderRadius: 20, fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 10 }
 const sectionH2 = { fontSize: '1.75rem', fontWeight: 800, color: '#1a3c6e', marginBottom: 16 }
 const bodyText = { color: '#444', lineHeight: 1.75, fontSize: '0.95rem' }
 
-const highlights = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 28 }
+const highlights = { display: 'grid', gap: 16, marginTop: 28 }
 const highlight = { background: '#f4f6fb', borderRadius: 10, padding: '14px 16px', display: 'flex', gap: 12, alignItems: 'center' }
 const hiIcon = { fontSize: '1.4rem' }
 const hiLabel = { fontSize: '0.72rem', color: '#5a6272', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.4 }

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer style={styles.footer}>
       <div style={styles.inner}>
-        <div style={styles.grid}>
+        <div style={styles.grid} className="footer-grid">
           {/* Brand */}
           <div>
             <div style={styles.brand}>
@@ -77,7 +77,6 @@ const styles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: '2fr 1fr 1.5fr',
     gap: 48,
     marginBottom: 40,
   },

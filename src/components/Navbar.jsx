@@ -33,7 +33,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div style={styles.links}>
+        <div style={styles.links} className="nav-links-wrap">
           {links.map(l => (
             <NavLink
               key={l.to}
@@ -51,19 +51,19 @@ export default function Navbar() {
         </div>
 
         {/* CTA */}
-        <a href="tel:+60192828 9180" style={styles.cta}>
+        <a href="tel:+60192828 9180" style={styles.cta} className="nav-cta">
           📞 019-2828 9180
         </a>
 
         {/* Sign out (only when logged in) */}
         {session && supabase && (
-          <button onClick={handleSignOut} style={styles.signOut}>
+          <button onClick={handleSignOut} style={styles.signOut} className="nav-signout">
             Sign Out
           </button>
         )}
 
         {/* Mobile hamburger */}
-        <button style={styles.hamburger} onClick={() => setOpen(!open)} aria-label="Menu">
+        <button style={styles.hamburger} className="nav-hamburger" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? '✕' : '☰'}
         </button>
       </div>
@@ -137,10 +137,8 @@ const styles = {
     letterSpacing: 0.3,
   },
   links: {
-    display: 'flex',
     gap: 4,
     flex: 1,
-    '@media(max-width:768px)': { display: 'none' },
   },
   link: {
     padding: '8px 14px',
@@ -172,14 +170,12 @@ const styles = {
     flexShrink: 0,
   },
   hamburger: {
-    display: 'none',
     background: 'none',
     border: 'none',
     color: '#fff',
     fontSize: '1.4rem',
     cursor: 'pointer',
     padding: 4,
-    '@media(max-width:768px)': { display: 'block' },
   },
   mobileMenu: {
     background: '#0f2447',

@@ -101,3 +101,71 @@ img {
 ::-webkit-scrollbar-track { background: var(--grey-light); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--grey); }
+
+/* ── Responsive layout helpers ───────────────────────────────────────── */
+
+/* Navbar */
+.nav-links-wrap { display: flex; }
+.nav-hamburger  { display: none; }
+
+/* Grid columns — defined here so media queries can override them cleanly */
+.footer-grid          { grid-template-columns: 2fr 1fr 1.5fr; }
+.home-client-grid     { grid-template-columns: 1fr 1fr; }
+.dash-charts-grid     { grid-template-columns: 1fr 1fr; }
+.dash-insights-grid   { grid-template-columns: 1fr 1fr; }
+.form-grid-2          { grid-template-columns: 1fr 1fr; }
+.about-two-col        { grid-template-columns: 1.1fr 1fr; }
+.about-two-col-equal  { grid-template-columns: 1fr 1fr; }
+.about-highlights     { grid-template-columns: 1fr 1fr; }
+.contacts-two-col     { grid-template-columns: 1fr 1fr; }
+
+/* QuotationDetail A4 — scrolls horizontally on mobile, prints at full width */
+.quotation-outer {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .nav-links-wrap { display: none; }
+  .nav-cta        { display: none !important; }
+  .nav-signout    { display: none !important; }
+  .nav-hamburger  { display: block; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+  /* Page hero banners */
+  .hero-h1    { font-size: 1.9rem !important; }
+  .page-title { font-size: 1.7rem !important; }
+
+  /* Home hero: stack content + stats card vertically */
+  .home-hero-section {
+    flex-direction: column !important;
+    padding: 40px 20px !important;
+    min-height: auto !important;
+    align-items: flex-start !important;
+  }
+  .home-stats-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* All fixed two-column grids → single column */
+  .home-client-grid,
+  .dash-charts-grid,
+  .dash-insights-grid,
+  .form-grid-2,
+  .about-two-col,
+  .about-two-col-equal,
+  .about-highlights,
+  .contacts-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .about-two-col      { gap: 32px; }
+  .about-two-col-equal { gap: 20px; }
+  .home-client-grid   { gap: 32px; }
+  .dash-charts-grid   { gap: 16px; }
+}

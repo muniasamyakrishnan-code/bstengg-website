@@ -11,7 +11,7 @@ export default function Services() {
         <div style={pageOverlay} />
         <div className="container" style={{ position: 'relative' }}>
           <p style={breadcrumb}>Home / Services</p>
-          <h1 style={pageTitle}>Engineering Services</h1>
+          <h1 style={pageTitle} className="page-title">Engineering Services</h1>
           <p style={pageSub}>Comprehensive laundry and engineering solutions for hospitality properties</p>
         </div>
       </div>

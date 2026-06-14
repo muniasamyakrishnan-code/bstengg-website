@@ -17,7 +17,7 @@ export default function Contacts() {
         <div style={pageOverlay} />
         <div className="container" style={{ position: 'relative' }}>
           <p style={breadcrumb}>Home / Contacts</p>
-          <h1 style={pageTitle}>Key Contacts</h1>
+          <h1 style={pageTitle} className="page-title">Key Contacts</h1>
           <p style={pageSub}>Hilton Kuala Lumpur — Engineering &amp; Finance team directory</p>
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function Contacts() {
         {/* AP / billing box */}
         <div style={{ marginTop: 56 }}>
           <h2 style={sectionH2}>Billing &amp; Accounts Payable</h2>
-          <div style={twoCol}>
+          <div style={twoCol} className="contacts-two-col">
             <div style={apCard}>
               <div style={apIcon}>📧</div>
               <h3 style={apTitle}>Accounts Payable</h3>
@@ -123,7 +123,7 @@ const filterBtn = { padding: '8px 18px', borderRadius: 20, border: '1px solid', 
 
 const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }
 const sectionH2 = { fontSize: '1.4rem', fontWeight: 800, color: '#1a3c6e', marginBottom: 20 }
-const twoCol = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }
+const twoCol = { display: 'grid', gap: 20 }
 
 const apCard = { background: '#fff', borderRadius: 12, padding: '28px', boxShadow: '0 2px 12px rgba(0,0,0,0.07)', borderTop: '4px solid #1a3c6e' }
 const apIcon = { fontSize: '2rem', marginBottom: 12 }

@@ -10,7 +10,7 @@ export default function Customers() {
         <div style={pageOverlay} />
         <div className="container" style={{ position: 'relative' }}>
           <p style={breadcrumb}>Home / Customers</p>
-          <h1 style={pageTitle}>Our Customers</h1>
+          <h1 style={pageTitle} className="page-title">Our Customers</h1>
           <p style={pageSub}>
             Trusted by <strong style={{ color: '#c8993a' }}>{totalCount}+</strong> leading hotels and commercial laundry operators across Malaysia
           </p>

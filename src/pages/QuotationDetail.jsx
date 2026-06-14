@@ -98,6 +98,7 @@ export default function QuotationDetail() {
       </div>
 
       {/* A4 Page */}
+      <div className="quotation-outer">
       <div style={page}>
 
         {/* Letterhead */}
@@ -311,6 +312,7 @@ export default function QuotationDetail() {
         </div>
 
       </div>
+      </div>{/* end quotation-outer */}
 
       {/* Print styles */}
       <style>{`

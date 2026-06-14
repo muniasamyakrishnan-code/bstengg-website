@@ -200,7 +200,7 @@ export default function QuotationBuilder() {
         {/* ── Quotation meta ── */}
         <section style={card}>
           <h3 style={cardTitle}>📋 Quotation Details</h3>
-          <div style={grid2}>
+          <div style={grid2} className="form-grid-2">
             <Field label="Quotation No *" value={q.quotationNo} onChange={v => setField('quotationNo', v)} placeholder="e.g. QT-2026-001" />
             <Field label="E-Invoice No" value={q.eInvoiceNo} onChange={v => setField('eInvoiceNo', v)} placeholder="e.g. 2600265" />
             <Field label="S/R No" value={q.srNo} onChange={v => setField('srNo', v)} placeholder="e.g. SR00265" />
@@ -231,7 +231,7 @@ export default function QuotationBuilder() {
         {/* ── Customer ── */}
         <section style={card}>
           <h3 style={cardTitle}>🏢 Customer Details</h3>
-          <div style={grid2}>
+          <div style={grid2} className="form-grid-2">
             <Field label="Company Name *" value={q.customer.name} onChange={v => setField('customer.name', v)} placeholder="Customer company name" />
             <Field label="Trading As" value={q.customer.tradingAs} onChange={v => setField('customer.tradingAs', v)} placeholder="Hotel / brand name" />
           </div>
@@ -244,7 +244,7 @@ export default function QuotationBuilder() {
               placeholder="Full billing address"
             />
           </div>
-          <div style={{ ...grid2, marginTop: 12 }}>
+          <div style={{ ...grid2, marginTop: 12 }} className="form-grid-2">
             <Field label="Attention" value={q.customer.attention} onChange={v => setField('customer.attention', v)} placeholder="Contact person / department" />
             <Field label="Phone" value={q.customer.phone} onChange={v => setField('customer.phone', v)} placeholder="+60 3-xxxx xxxx" />
             <Field label="Customer Email *" value={q.customer.email} onChange={v => setField('customer.email', v)} placeholder="customer@example.com" type="email" />
@@ -422,7 +422,7 @@ export default function QuotationBuilder() {
               placeholder="E.g. All prices are in [currency]. E & O.E."
             />
           </div>
-          <div style={grid2}>
+          <div style={grid2} className="form-grid-2">
             <Field label="Prepared By" value={q.preparedBy} onChange={v => setField('preparedBy', v)} placeholder="Your name" />
             <Field label="Title / Designation" value={q.preparedTitle} onChange={v => setField('preparedTitle', v)} placeholder="e.g. Sales Manager" />
           </div>
@@ -489,7 +489,7 @@ const branchBtn = { border: '2px solid', padding: '10px 22px', borderRadius: 8, 
 const formWrap = { maxWidth: 860, margin: '0 auto', padding: '28px 20px' }
 const card = { background: '#fff', borderRadius: 12, padding: '22px 24px', marginBottom: 20, boxShadow: '0 2px 10px rgba(0,0,0,0.06)' }
 const cardTitle = { color: '#1a3c6e', fontWeight: 800, fontSize: '1rem', marginBottom: 16 }
-const grid2 = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px 20px' }
+const grid2 = { display: 'grid', gap: '12px 20px' }
 const fieldLabel = { display: 'block', fontSize: '0.75rem', color: '#5a6272', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 5 }
 const input = { width: '100%', border: '1.5px solid #d0d6e0', borderRadius: 7, padding: '8px 10px', fontSize: '0.88rem', color: '#111', outline: 'none', boxSizing: 'border-box', fontFamily: 'inherit' }
 const itemTh = { padding: '8px 8px', textAlign: 'left', fontWeight: 600, fontSize: '0.78rem', whiteSpace: 'nowrap' }

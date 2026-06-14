@@ -64,7 +64,7 @@ export default function Dashboard() {
         <div style={pageOverlay} />
         <div className="container" style={{ position: 'relative' }}>
           <p style={breadcrumb}>Home / Dashboard</p>
-          <h1 style={pageTitle}>Hilton KL Account Dashboard</h1>
+          <h1 style={pageTitle} className="page-title">Hilton KL Account Dashboard</h1>
           <p style={pageSub}>Financial overview · Report Date: {financials.reportDate}</p>
         </div>
       </div>
@@ -103,7 +103,7 @@ export default function Dashboard() {
         {/* Charts */}
         <section style={{ marginBottom: 40 }}>
           <h2 style={sectionH2}>Financial Overview</h2>
-          <div style={chartsGrid}>
+          <div style={chartsGrid} className="dash-charts-grid">
             <div style={chartBox}>
               <div style={chartTitle}>2026 Payments Received (RM)</div>
               <div style={{ height: 250 }}>
@@ -181,7 +181,7 @@ export default function Dashboard() {
         {/* Insights */}
         <section>
           <h2 style={sectionH2}>Insights &amp; Recommendations</h2>
-          <div style={insightsGrid}>
+          <div style={insightsGrid} className="dash-insights-grid">
             {[
               { icon: '⚠️', variant: 'red', title: 'Overdue Invoices (Oct–Nov 2025)', text: 'Invoices 02500514 (RM 898) and 02500531 (RM 2,235) are 7–8 months overdue. Priority: send a formal reminder to kulhi_ap@hilton.com immediately.' },
               { icon: '📈', variant: 'gold', title: 'Payment Pattern', text: 'Hilton pays in batches via online transfer — typically 2–3 months after invoicing. Average batch = RM 5,000–13,000. Consider issuing consolidated statements monthly to prompt faster collection.' },
@@ -216,7 +216,7 @@ const alertRed2 = { ...alertRed, margin: 0 }
 const alertGold2 = { ...alertGold, margin: 0 }
 
 const kpiGrid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }
-const chartsGrid = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }
+const chartsGrid = { display: 'grid', gap: 24 }
 const chartBox = { background: '#fff', borderRadius: 12, padding: '24px', boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }
 const chartTitle = { fontSize: '0.8rem', fontWeight: 700, color: '#5a6272', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 16 }
 
@@ -227,4 +227,4 @@ const tableFoot = { background: '#1a3c6e', color: '#fff', borderRadius: '0 0 12p
 const tableStyle = { width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem', background: '#fff' }
 const th = { padding: '12px 14px', textAlign: 'left', fontWeight: 600, fontSize: '0.8rem' }
 const td = { padding: '11px 14px', borderBottom: '1px solid #dde3ef', verticalAlign: 'middle' }
-const insightsGrid = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }
+const insightsGrid = { display: 'grid', gap: 16 }
