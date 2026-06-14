@@ -1,0 +1,103 @@
+:root {
+  --navy: #1a3c6e;
+  --navy-dark: #0f2447;
+  --navy-light: #2a5298;
+  --gold: #c8993a;
+  --gold-light: #f0c060;
+  --gold-pale: #fffbf0;
+  --green: #1a7a4a;
+  --green-pale: #e2f5eb;
+  --red: #c0392b;
+  --red-pale: #fdf0f0;
+  --grey: #5a6272;
+  --grey-light: #f4f6fb;
+  --border: #dde3ef;
+  --white: #ffffff;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: var(--grey-light);
+  color: #222;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--grey);
+  margin-bottom: 40px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.badge-supply { background: #f0e8ff; color: #5a1a8a; }
+.badge-repair { background: #fff6e0; color: #8a5d00; }
+.badge-service { background: #eaf0ff; color: var(--navy); }
+.badge-paid { background: var(--green-pale); color: var(--green); }
+.badge-unpaid { background: var(--red-pale); color: var(--red); }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.amount {
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-weight: 700;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--grey-light); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--grey); }

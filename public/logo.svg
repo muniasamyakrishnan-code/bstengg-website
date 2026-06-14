@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" width="120" height="100">
+  <!-- Orbital ring outer (tilted) -->
+  <ellipse cx="58" cy="44" rx="46" ry="16" fill="none" stroke="#1a5aaf" stroke-width="3.5" opacity="0.7" transform="rotate(-30 58 44)"/>
+  <!-- Orbital ring middle -->
+  <ellipse cx="58" cy="44" rx="46" ry="16" fill="none" stroke="#4a90d9" stroke-width="3" opacity="0.6" transform="rotate(30 58 44)"/>
+  <!-- Orbital ring vertical -->
+  <ellipse cx="58" cy="44" rx="14" ry="40" fill="none" stroke="#2a7abf" stroke-width="2.5" opacity="0.65"/>
+
+  <!-- Sphere gradient -->
+  <defs>
+    <radialGradient id="sphereGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#d0e8ff"/>
+      <stop offset="35%" stop-color="#6aaddf"/>
+      <stop offset="75%" stop-color="#1a5aaf"/>
+      <stop offset="100%" stop-color="#0a2a5a"/>
+    </radialGradient>
+    <radialGradient id="shine" cx="35%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.6)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <!-- Core sphere -->
+  <circle cx="58" cy="44" r="20" fill="url(#sphereGrad)"/>
+  <!-- Shine overlay -->
+  <circle cx="58" cy="44" r="20" fill="url(#shine)"/>
+
+  <!-- BEST text -->
+  <text x="58" y="90" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="2" fill="#e8a010">BEST</text>
+  <text x="58" y="90" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="2" fill="none" stroke="#c07800" stroke-width="0.5">BEST</text>
+</svg>
