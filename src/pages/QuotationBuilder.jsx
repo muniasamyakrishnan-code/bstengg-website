@@ -48,11 +48,12 @@ export default function QuotationBuilder() {
   const isEdit = Boolean(id)
 
   const [q, setQ] = useState(null)
+  const [saving, setSaving] = useState(false)
+  const [saveError, setSaveError] = useState('')
 
   useEffect(() => {
     if (isEdit) {
-      const existing = getQuotation(id)
-      setQ(existing || blankQuotation('MY'))
+      getQuotation(id).then(existing => setQ(existing || blankQuotation('MY')))
     } else {
       setQ(blankQuotation('MY'))
     }
@@ -134,9 +135,6 @@ export default function QuotationBuilder() {
   function removeTerm(idx) {
     setQ(prev => ({ ...prev, terms: prev.terms.filter((_, i) => i !== idx) }))
   }
-
-  const [saving, setSaving] = useState(false)
-  const [saveError, setSaveError] = useState('')
 
   async function handleSave(status) {
     setSaving(true)
