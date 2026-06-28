@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { saveQuotation, generateId } from '../utils/quotationStore'
-import { provider, bankDetails } from '../data/company'
+import { provider, providerIN, bankDetails } from '../data/company'
 
 function fmt(n) {
   return Number(n || 0).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
@@ -18,8 +18,12 @@ const defaultTcRows = [
 ]
 
 const defaultNotes = [
-  'Prices are in RM and subject to 8% SST.',
-  'Delivery timeline to be confirmed upon order.',
+  'Price NET Ex-Shah Alam.',
+  'Goods sold are STRICTLY not returnable.',
+  'Delivery: Approximately 4 to 6 weeks upon receipt advance payment before order the spare part.',
+  'NO warranty if install by end-user, third party, freelance contractor/technician, service engineer/specialist, etc.',
+  'A 25% of restocking fees will be imposed if return spare part and confirmed by The Management.',
+  'Validity: Strictly 30 days',
 ]
 
 function blankItem(sn) {
@@ -102,7 +106,7 @@ export default function QuotationNew() {
         items: items.map((it, i) => ({ ...it, sn: i + 1 })),
         subtotal,
         total: subtotal,
-        currency: 'RM',
+        currency: 'INR',
         branch: 'MY',
         // Flat TC fields for QuotationDetail compatibility
         delivery: tcRows.find(r => r.label === 'Delivery terms')?.val || '',
@@ -179,52 +183,53 @@ export default function QuotationNew() {
       <div className="quotation-outer">
       <div style={page} ref={pageRef}>
 
-        {/* 1. Letterhead */}
-        <div style={letterhead}>
-          {/* Left: logo + company name + address */}
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
-            <img
-              src="/logo.png"
-              alt="Best Sun Tech Logo"
-              style={{ height: 68, width: 'auto', objectFit: 'contain', flexShrink: 0, marginTop: 2 }}
-            />
-            <div>
-              <div style={{ fontSize: '13pt', fontWeight: 900, color: '#1a3c6e', letterSpacing: '0.3px', lineHeight: 1.15 }}>
-                BEST SUN TECH ENGINEERING SDN BHD
+        {/* 1. Letterhead — India style: logo-left + company-right */}
+        <div style={{
+          display: 'flex', alignItems: 'flex-start',
+          marginLeft: -50, marginRight: -50,
+          padding: '0 50px',
+          background: '#fff',
+        }}>
+          {/* Left: large logo */}
+          <div style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start',
+            paddingRight: 20, paddingBottom: 10, flexShrink: 0, width: 200,
+          }}>
+            <img src="/logo.png" alt="BST Logo" style={{ width: 190, height: 190, objectFit: 'contain', display: 'block' }} />
+          </div>
+
+          {/* Right: company details */}
+          <div style={{ flex: 1, paddingTop: 4, paddingBottom: 8 }}>
+            {/* Company name */}
+            <div style={{ fontSize: '16pt', fontWeight: 900, color: '#1a3c6e', letterSpacing: '0.4px', lineHeight: 1.15, marginBottom: 8, whiteSpace: 'nowrap', textAlign: 'left' }}>
+              BEST SUN TECH ENGINEERING PRIVATE LTD
+            </div>
+            {/* Address + contacts — bold italic right-aligned */}
+            <div style={{ fontSize: '8.5pt', fontWeight: 700, fontStyle: 'italic', color: '#333', lineHeight: 1.85, textAlign: 'right' }}>
+              Flat No.184, Senthoor Nagar, Manjampatti Village,<br />
+              Natham Main Road, Madurai - 625014, Tamil Nadu, India<br />
+              T: {providerIN.tel}&nbsp;&nbsp; H/P: {providerIN.hp}<br />
+              <span style={{ textDecoration: 'underline', color: '#1a3c6e' }}>E: {providerIN.email}</span>
+            </div>
+            {/* Divider + GSTIN row */}
+            <div style={{ marginTop: 8, paddingTop: 5, display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ fontSize: '8.5pt', fontWeight: 700, fontStyle: 'italic', color: '#333' }}>
+                <span style={{ textDecoration: 'underline' }}>GSTIN/UIN</span> : {providerIN.gstin}
               </div>
-              <div style={{ fontSize: '7.5pt', color: '#c8993a', fontStyle: 'italic', marginTop: 2, marginBottom: 6 }}>
-                {provider.tagline}
-              </div>
-              <div style={{ fontSize: '7.5pt', color: '#555', lineHeight: 1.75 }}>
-                {provider.address}<br />
-                <span style={{ color: '#777' }}>Tel:</span> {provider.tel}&nbsp;&nbsp;
-                <span style={{ color: '#aaa' }}>|</span>&nbsp;&nbsp;
-                <span style={{ color: '#777' }}>HP:</span> {provider.hp}&nbsp;&nbsp;
-                <span style={{ color: '#aaa' }}>|</span>&nbsp;&nbsp;
-                <span style={{ color: '#777' }}>Email:</span> {provider.email}
+              <div style={{ fontSize: '8.5pt', fontWeight: 700, fontStyle: 'italic', color: '#333' }}>
+                <span style={{ textDecoration: 'underline' }}>RN</span>: {provider.brn}
               </div>
             </div>
           </div>
-
-          {/* Right: registration box */}
-          <div style={{ borderLeft: '3px solid #1a3c6e', paddingLeft: 14, flexShrink: 0, fontSize: '7.5pt', color: '#444' }}>
-            {[['BRN', provider.brn], ['Supplier TIN', provider.tin], ['SST No', provider.sst]].map(([lbl, val]) => (
-              <div key={lbl} style={{ display: 'flex', alignItems: 'center', marginBottom: 4 }}>
-                <span style={{ display: 'inline-block', width: 82, textAlign: 'right', color: '#1a3c6e', fontWeight: 700, flexShrink: 0 }}>{lbl}</span>
-                <span style={{ marginLeft: 10, whiteSpace: 'nowrap' }}>{val}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Double separator */}
-        <div style={{ height: 3, background: '#1a3c6e', marginBottom: 2 }} />
-        <div style={{ height: 1.5, background: '#c8993a', marginBottom: 0 }} />
+        {/* Bottom separator — thick navy */}
+        <div style={{ height: 3, background: '#1a3c6e', marginLeft: -50, marginRight: -50, marginBottom: 0 }} />
 
         {/* 2. Quotation header bar */}
         <div style={quotationHeader}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            <span style={{ fontSize: '11pt', fontWeight: 700, color: '#1a3c6e' }}>Quotation</span>
+            <span style={{ fontSize: '11pt', fontWeight: 700, color: '#111' }}>Quotation</span>
             <input
               className="doc-input-inline"
               value={qNo}
@@ -324,41 +329,6 @@ export default function QuotationNew() {
           ))}
         </div>
 
-        {/* 6. Customer Order Reference banner */}
-        <div style={custRefBanner}>
-          <div style={custRefLeft}>
-            <div style={{ fontSize: '9pt', color: 'rgba(255,255,255,0.75)', marginBottom: 2 }}>Customer Order Reference</div>
-            <input
-              className="doc-input-inline doc-input-white"
-              value={customerRef}
-              onChange={e => setCustomerRef(e.target.value)}
-              placeholder="Enter customer order reference..."
-              style={{ fontSize: '14pt', fontWeight: 900, color: '#fff', width: '100%' }}
-            />
-          </div>
-          <div style={custRefRight}>
-            <div style={{ display: 'flex', gap: 6, justifyContent: 'flex-end', alignItems: 'center', marginBottom: 4 }}>
-              <span style={{ color: 'rgba(255,255,255,0.65)', minWidth: 90, textAlign: 'right' }}>Agency</span>
-              <input
-                className="doc-input-inline doc-input-white"
-                value={agency}
-                onChange={e => setAgency(e.target.value)}
-                placeholder="—"
-                style={{ color: '#fff', width: 130, textAlign: 'right' }}
-              />
-            </div>
-            <div style={{ display: 'flex', gap: 6, justifyContent: 'flex-end', alignItems: 'center' }}>
-              <span style={{ color: 'rgba(255,255,255,0.65)', minWidth: 90, textAlign: 'right' }}>Your reference</span>
-              <input
-                className="doc-input-inline doc-input-white"
-                value={yourRef}
-                onChange={e => setYourRef(e.target.value)}
-                placeholder="—"
-                style={{ color: '#fff', width: 130, textAlign: 'right' }}
-              />
-            </div>
-          </div>
-        </div>
 
         {/* 7. Details table */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
@@ -383,7 +353,7 @@ export default function QuotationNew() {
             {items.map((item, i) => (
               <tr key={i}>
                 <td style={{ ...td, textAlign: 'center', fontWeight: 600, color: '#444' }}>
-                  {String((i + 1) * 10).padStart(4, '0')}
+                  {i + 1}
                 </td>
                 <td style={{ ...td, padding: 2 }}>
                   <input className="doc-input" value={item.posNr} onChange={e => updateItem(i, 'posNr', e.target.value)} style={{ fontSize: '8pt' }} />
@@ -449,7 +419,7 @@ export default function QuotationNew() {
               <td colSpan={5} style={{ ...td, border: '1px solid #bbb', background: '#f0f0f0' }} />
               <td style={{ ...td, fontWeight: 900, fontSize: '9pt', textAlign: 'right', border: '1px solid #bbb', color: '#333', background: '#f0f0f0' }}>Total</td>
               <td style={{ ...td, fontWeight: 900, fontSize: '9.5pt', textAlign: 'right', border: '1px solid #bbb', color: '#1a3c6e', background: '#f0f0f0' }}>
-                RM &nbsp;{fmt(subtotal)}
+                INR &nbsp;{fmt(subtotal)}
               </td>
               <td style={{ ...td, border: '1px solid #bbb', background: '#f0f0f0' }} />
               <td className="no-print" style={{ background: 'transparent', border: 'none' }} />
@@ -526,7 +496,7 @@ const page = {
   minHeight: 1123,
   background: '#fff',
   margin: '20px auto',
-  padding: '40px 50px 48px',
+  padding: '0 50px 48px',
   boxShadow: '0 6px 32px rgba(0,0,0,.28)',
   borderRadius: 2,
   position: 'relative',
