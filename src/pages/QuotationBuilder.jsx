@@ -9,7 +9,7 @@ const today = () => {
 }
 
 function blankItem(sn) {
-  return { sn, description: '', descSub: '', qty: 1, unitPrice: 0, amount: 0 }
+  return { sn, posNr: '', code: '', description: '', descSub: '', qty: 1, unitPrice: 0, amount: 0, expectedDate: '' }
 }
 
 function blankQuotation(branch) {
@@ -29,8 +29,15 @@ function blankQuotation(branch) {
     validity: '15 Days',
     paymentTerms: '30 Days',
     delivery: 'Any Time',
+    transport: '',
+    warranty: '',
+    bankFees: '',
+    pricelist: '',
     customer: { name: '', tradingAs: '', address: '', attention: '', phone: '', email: '', tin: '' },
     scope: '',
+    customerRef: '',
+    agency: '',
+    yourReference: '',
     items: [blankItem(1)],
     freight: 0,
     deposit: 0,
@@ -206,15 +213,24 @@ export default function QuotationBuilder() {
             <Field label="Payment Terms" value={q.paymentTerms} onChange={v => setField('paymentTerms', v)} placeholder="e.g. 30 Days" />
             <Field label="Delivery" value={q.delivery} onChange={v => setField('delivery', v)} placeholder="e.g. Any Time" />
             <Field label="Validity" value={q.validity} onChange={v => setField('validity', v)} placeholder="e.g. 15 Days" />
+            <Field label="Transport" value={q.transport} onChange={v => setField('transport', v)} placeholder="e.g. By Customer Collection" />
+            <Field label="Warranty" value={q.warranty} onChange={v => setField('warranty', v)} placeholder="e.g. No warranty" />
+            <Field label="Bank Fees" value={q.bankFees} onChange={v => setField('bankFees', v)} placeholder="e.g. paid by customer" />
+            <Field label="Pricelist" value={q.pricelist} onChange={v => setField('pricelist', v)} placeholder="e.g. SP-2026-G-Laundry" />
           </div>
           <div style={{ marginTop: 12 }}>
-            <label style={fieldLabel}>Scope of Work *</label>
+            <label style={fieldLabel}>Scope of Work / Customer Order Reference *</label>
             <input
               style={input}
               value={q.scope}
               onChange={e => setField('scope', e.target.value)}
               placeholder="Brief description of the work / supply scope"
             />
+          </div>
+          <div style={{ ...grid2, marginTop: 12 }} className="form-grid-2">
+            <Field label="Customer Ref (if different from Scope)" value={q.customerRef} onChange={v => setField('customerRef', v)} placeholder="Customer's PO or reference name" />
+            <Field label="Agency" value={q.agency} onChange={v => setField('agency', v)} placeholder="e.g. INDIRECT SPARES" />
+            <Field label="Your Reference" value={q.yourReference} onChange={v => setField('yourReference', v)} placeholder="Internal contact / reference" />
           </div>
           <div style={{ marginTop: 12 }}>
             <label style={fieldLabel}>Status</label>
@@ -261,52 +277,45 @@ export default function QuotationBuilder() {
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem' }}>
               <thead>
                 <tr style={{ background: '#1a3c6e', color: '#fff' }}>
-                  {['#', 'Description', 'Sub-description (optional)', 'Qty', `Unit (${cur})`, `Amount (${cur})`, ''].map(h => (
-                    <th key={h} style={itemTh}>{h}</th>
-                  ))}
+                  <th style={itemTh}>#</th>
+                  <th style={itemTh}>Pos. nr.</th>
+                  <th style={itemTh}>Code</th>
+                  <th style={itemTh}>Description</th>
+                  <th style={itemTh}>Sub-description</th>
+                  <th style={itemTh}>Qty</th>
+                  <th style={itemTh}>Unit ({cur})</th>
+                  <th style={itemTh}>Amount ({cur})</th>
+                  <th style={itemTh}>Expected Date</th>
+                  <th style={itemTh} />
                 </tr>
               </thead>
               <tbody>
                 {q.items.map((it, idx) => (
                   <tr key={idx} style={{ background: idx % 2 === 0 ? '#fff' : '#f8faff' }}>
                     <td style={{ ...itemTd, textAlign: 'center', width: 32, color: '#888', fontWeight: 700 }}>{it.sn}</td>
-                    <td style={itemTd}>
-                      <input
-                        style={tableInput}
-                        value={it.description}
-                        onChange={e => updateItem(idx, 'description', e.target.value)}
-                        placeholder="Item / service name"
-                      />
+                    <td style={{ ...itemTd, width: 80 }}>
+                      <input style={tableInput} value={it.posNr || ''} onChange={e => updateItem(idx, 'posNr', e.target.value)} placeholder="0W5174" />
+                    </td>
+                    <td style={{ ...itemTd, width: 90 }}>
+                      <input style={tableInput} value={it.code || ''} onChange={e => updateItem(idx, 'code', e.target.value)} placeholder="432517701" />
                     </td>
                     <td style={itemTd}>
-                      <input
-                        style={tableInput}
-                        value={it.descSub}
-                        onChange={e => updateItem(idx, 'descSub', e.target.value)}
-                        placeholder="Optional detail"
-                      />
+                      <input style={tableInput} value={it.description} onChange={e => updateItem(idx, 'description', e.target.value)} placeholder="Item / service name" />
                     </td>
-                    <td style={{ ...itemTd, width: 70 }}>
-                      <input
-                        style={{ ...tableInput, textAlign: 'right' }}
-                        type="number"
-                        min="0"
-                        value={it.qty}
-                        onChange={e => updateItem(idx, 'qty', e.target.value)}
-                      />
+                    <td style={itemTd}>
+                      <input style={tableInput} value={it.descSub} onChange={e => updateItem(idx, 'descSub', e.target.value)} placeholder="Model / detail" />
+                    </td>
+                    <td style={{ ...itemTd, width: 60 }}>
+                      <input style={{ ...tableInput, textAlign: 'right' }} type="number" min="0" value={it.qty} onChange={e => updateItem(idx, 'qty', e.target.value)} />
+                    </td>
+                    <td style={{ ...itemTd, width: 90 }}>
+                      <input style={{ ...tableInput, textAlign: 'right' }} type="number" min="0" step="0.01" value={it.unitPrice} onChange={e => updateItem(idx, 'unitPrice', e.target.value)} />
+                    </td>
+                    <td style={{ ...itemTd, width: 100, fontWeight: 700, textAlign: 'right', color: '#1a3c6e' }}>
+                      {cur} {Number(it.amount).toFixed(2)}
                     </td>
                     <td style={{ ...itemTd, width: 100 }}>
-                      <input
-                        style={{ ...tableInput, textAlign: 'right' }}
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        value={it.unitPrice}
-                        onChange={e => updateItem(idx, 'unitPrice', e.target.value)}
-                      />
-                    </td>
-                    <td style={{ ...itemTd, width: 110, fontWeight: 700, textAlign: 'right', color: '#1a3c6e' }}>
-                      {cur} {Number(it.amount).toFixed(2)}
+                      <input style={tableInput} value={it.expectedDate || ''} onChange={e => updateItem(idx, 'expectedDate', e.target.value)} placeholder="e.g. 04/06/2026" />
                     </td>
                     <td style={{ ...itemTd, width: 36, textAlign: 'center' }}>
                       {q.items.length > 1 && (
@@ -375,7 +384,7 @@ export default function QuotationBuilder() {
                 </tr>
                 <tr style={{ background: '#1a3c6e', color: '#fff' }}>
                   <td style={{ padding: '8px 8px', fontWeight: 800, borderRadius: '0 0 0 6px' }}>
-                    TOTAL {q.applyTax ? `INC. ${q.taxLabel} (${q.taxRate}%)` : '(excl. tax)'}
+                    GRAND TOTAL {q.applyTax ? `INC. ${q.taxLabel} (${q.taxRate}%)` : ''}
                   </td>
                   <td style={{ padding: '8px 8px', fontWeight: 800, textAlign: 'right', borderRadius: '0 0 6px 0', fontSize: '1.05rem' }}>
                     {cur} {total.toFixed(2)}

@@ -11,6 +11,7 @@ import Contacts from './pages/Contacts'
 import Quotations from './pages/Quotations'
 import QuotationDetail from './pages/QuotationDetail'
 import QuotationBuilder from './pages/QuotationBuilder'
+import QuotationNew from './pages/QuotationNew'
 import Customers from './pages/Customers'
 import { supabase } from './lib/supabase'
 
@@ -55,7 +56,7 @@ export default function App() {
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/contacts" element={<ProtectedRoute><Contacts /></ProtectedRoute>} />
           <Route path="/quotations" element={<ProtectedRoute><Quotations /></ProtectedRoute>} />
-          <Route path="/quotations/new" element={<ProtectedRoute><QuotationBuilder /></ProtectedRoute>} />
+          <Route path="/quotations/new" element={<ProtectedRoute><QuotationNew /></ProtectedRoute>} />
           <Route path="/quotations/:id" element={<ProtectedRoute><QuotationDetail /></ProtectedRoute>} />
           <Route path="/quotations/:id/edit" element={<ProtectedRoute><QuotationBuilder /></ProtectedRoute>} />
         </Routes>

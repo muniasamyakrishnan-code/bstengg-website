@@ -3,17 +3,34 @@ export const provider = {
   brn: '200601006749 (726498-D)',
   tin: 'C20506530090',
   sst: 'W10-1808-31022726',
-  address: 'No C-0-3A, Putra Majestik, Jalan Kasipillay, 51200 Kuala Lumpur',
+  address: 'C-03-A, Putra Majestik, No.2A, Jalan Kasipillay, off Jalan Ipoh, 51200 Kuala Lumpur',
   hp: '019-2828 9180',
   tel: '603-4813 9407',
   email: 'bstengg@yahoo.com',
   invoiceTerms: 'Net 30 days after invoice date',
-  tagline: 'Specialist Laundry & Engineering Services',
+  tagline: 'One Stop Solution for Your Laundry Business',
   description:
-    'Best Sun Tech Engineering Sdn Bhd is a Malaysia-based engineering services company specialising in laundry equipment maintenance, mechanical repairs, steam pipe works, and supply of industrial parts. We have been a trusted service partner to Hilton Kuala Lumpur since 2024, maintaining all laundry and engineering systems at Level 7.',
+    'Best Sun Tech Engineering Sdn Bhd is a well-established company dealing with laundry machines and spare parts in Malaysia since 2006. We provide technical services and world-leading industrial and commercial laundry equipment for hotels, hospitals, large laundry plants and commercial laundry outlets. We have been a trusted service partner to Hilton Kuala Lumpur since 2024, maintaining all laundry and engineering systems at Level 7.',
+  mission:
+    'We strive to provide our customers with quality, reliable and affordable products together with excellent after-sales service and maintenance.',
   established: '2006',
   clients: ['Hilton Kuala Lumpur', 'Le Meridien KL', 'Various Hospitality & Industrial'],
 }
+
+export const productOfferings = [
+  { icon: '🏭', label: 'Commercial & Industrial Laundry Equipment' },
+  { icon: '💧', label: 'Aqua Wet Cleaning & Dry Cleaning Equipment' },
+  { icon: '🔩', label: 'All Laundry Equipment Spare Parts' },
+  { icon: '🔧', label: 'Repairing & Servicing' },
+  { icon: '⚙️', label: 'Customised Engineering Works' },
+  { icon: '🤝', label: 'After-Sales Service' },
+  { icon: '🔄', label: 'Trade-In Used Machines' },
+  { icon: '🧴', label: 'Laundry Accessories & Detergents' },
+  { icon: '🎓', label: 'Aqua Wet Cleaning Chemical & Training (Theory & Practical)' },
+  { icon: '🏪', label: 'Launderette Services' },
+]
+
+export const availableBrands = ['IPSO', 'Electrolux', 'Huebsch', 'Cissell', 'Girbau', 'Pony', 'Realstar', 'Earlstar', 'ADC', 'Rema']
 
 export const providerIN = {
   name: 'Best Sun Tech Engineering Pvt Ltd',
@@ -26,6 +43,14 @@ export const providerIN = {
 
 export function getProvider(branch) {
   return branch === 'IN' ? providerIN : provider
+}
+
+export const bankDetails = {
+  bank: 'ABC Bank',
+  accountNo: '1234567990',
+  swift: 'CNBR09675',
+  footerEmail: 'muniasamykrishnan@gmail.com',
+  website: 'bestsuntech.com',
 }
 
 export const client = {
