@@ -5,21 +5,25 @@ export const provider = {
   sst: 'W10-1808-31022726',
   address: 'C-03-A, Putra Majestik, No.2A, Jalan Kasipillay, off Jalan Ipoh, 51200 Kuala Lumpur',
   hp: '019-2828 9180',
-  tel: '603-4813 9407',
+  tel: '03-4041 0250',
+  fax: '03-4051 0250',
   email: 'bstengg@yahoo.com',
   invoiceTerms: 'Net 30 days after invoice date',
   tagline: 'One Stop Solution for Your Laundry Business',
   description:
-    'Best Sun Tech Engineering Sdn Bhd is a well-established company dealing with laundry machines and spare parts in Malaysia since 2006. We provide technical services and world-leading industrial and commercial laundry equipment for hotels, hospitals, large laundry plants and commercial laundry outlets. We have been a trusted service partner to Hilton Kuala Lumpur since 2024, maintaining all laundry and engineering systems at Level 7.',
+    'Best Sun Tech Engineering Sdn Bhd is a well-established specialist in commercial and industrial laundry equipment, spare parts supply and engineering services in Malaysia since 2011. We provide technical services and world-leading equipment from top global brands for 5-star hotels, resorts, commercial laundry operators and industrial clients across Malaysia.',
   mission:
     'We strive to provide our customers with quality, reliable and affordable products together with excellent after-sales service and maintenance.',
-  established: '2006',
-  clients: ['Hilton Kuala Lumpur', 'Le Meridien KL', 'Various Hospitality & Industrial'],
+  established: '2011',
 }
 
 export const productOfferings = [
   { icon: '🏭', label: 'Commercial & Industrial Laundry Equipment' },
-  { icon: '💧', label: 'Aqua Wet Cleaning & Dry Cleaning Equipment' },
+  { icon: '💧', label: 'Aqua Wet Cleaning & Dry Cleaning' },
+  { icon: '👔', label: 'Washing & Drying Services' },
+  { icon: '🗜️', label: 'Ironing & Flatwork Finishing' },
+  { icon: '🧹', label: 'Carpet Cleaning' },
+  { icon: '🧪', label: 'Stain & Colour Removal' },
   { icon: '🔩', label: 'All Laundry Equipment Spare Parts' },
   { icon: '🔧', label: 'Repairing & Servicing' },
   { icon: '⚙️', label: 'Customised Engineering Works' },

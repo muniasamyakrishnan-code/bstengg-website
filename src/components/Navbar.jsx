@@ -8,6 +8,8 @@ const publicLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
+  { to: '/products', label: 'Products' },
+  { to: '/customers', label: 'Clients' },
   { to: '/contact', label: 'Contact' },
 ]
 

@@ -14,6 +14,7 @@ import QuotationBuilder from './pages/QuotationBuilder'
 import QuotationNew from './pages/QuotationNew'
 import Customers from './pages/Customers'
 import Contact from './pages/Contact'
+import Products from './pages/Products'
 import { supabase } from './lib/supabase'
 
 // Pages that require login (only when Supabase is configured)
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
 

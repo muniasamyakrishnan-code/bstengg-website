@@ -4,11 +4,11 @@ export const services = [
     icon: '🔧',
     title: 'Monthly Maintenance',
     badge: 'Monthly',
-    equipment: 'All Laundry Equipment (Lvl 7)',
+    equipment: 'All Commercial Laundry Equipment',
     count: 'Ongoing',
-    notes: 'RM 1,200 + 8% SST = RM 1,296/month retainer',
+    notes: 'Scheduled preventive maintenance contracts for hotels and commercial laundry operators',
     description:
-      'Comprehensive monthly preventive maintenance covering all laundry equipment across Level 7. Includes routine inspections, lubrication, belt checks, and minor adjustments to ensure maximum uptime.',
+      'Comprehensive monthly preventive maintenance for all commercial laundry equipment. Includes routine inspections, lubrication, belt checks, and minor adjustments to ensure maximum uptime.',
     color: '#1a3c6e',
   },
   {
@@ -16,7 +16,7 @@ export const services = [
     icon: '🌊',
     title: 'Washer Repair',
     badge: 'Repair',
-    equipment: 'IPSO, Electrolux, Huebsch, Panasonic (W1–W4)',
+    equipment: 'IPSO, Electrolux, Huebsch, Panasonic',
     count: '40+ jobs',
     notes: 'Drain valves, water valves, bearings, PCBs, door seals',
     description:
@@ -28,7 +28,7 @@ export const services = [
     icon: '♨️',
     title: 'Dryer Repair',
     badge: 'Repair',
-    equipment: 'ADC, Huebsch, Cissell (D1–D4)',
+    equipment: 'ADC, Huebsch, Cissell',
     count: '35+ jobs',
     notes: 'Steam coils, motors, controllers, drive belts',
     description:
@@ -40,7 +40,7 @@ export const services = [
     icon: '💨',
     title: 'Steam Pipe Works',
     badge: 'Repair',
-    equipment: 'Laundry Lvl 7, Boiler Room B3, Lvl 5 & 8',
+    equipment: 'Hotel Laundry, Boiler Room, All Floors',
     count: '25+ jobs',
     notes: 'Solenoid valves, welding, gate valves, pipe leak repair',
     description:
@@ -64,7 +64,7 @@ export const services = [
     icon: '✨',
     title: 'Dry Clean Machine',
     badge: 'Repair',
-    equipment: 'Pony P1 & P2, Earlstar/Realstar',
+    equipment: 'Pony, Earlstar, Realstar',
     count: '15+ jobs',
     notes: 'Solvent pumps, door gaskets, steam coils, bearings',
     description:

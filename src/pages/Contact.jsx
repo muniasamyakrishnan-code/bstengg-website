@@ -81,6 +81,7 @@ export default function Contact() {
                 <div>
                   <div style={infoLabel}>Office Tel</div>
                   <a href={`tel:${provider.tel}`} style={infoLink}>{provider.tel}</a>
+                  {provider.fax && <div style={{ fontSize: '0.82rem', color: '#5a6272', marginTop: 4 }}>Fax: {provider.fax}</div>}
                 </div>
               </div>
               <div style={infoCard}>

@@ -22,9 +22,9 @@ export default function Services() {
         {/* Stats strip */}
         <div style={statsStrip}>
           {[
-            ['170+', 'Total Jobs Completed'],
+            ['15+', 'Years in Malaysia'],
             ['10', 'Service Categories'],
-            ['RM 1,296', 'Monthly Retainer'],
+            ['30+', 'Hotel Clients'],
             ['24/7', 'Emergency Support'],
           ].map(([val, label]) => (
             <div key={label} style={statChip}>
