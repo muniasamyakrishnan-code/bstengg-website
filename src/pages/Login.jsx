@@ -1,19 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
+import { useAuth } from '../lib/AuthContext'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
+  const { session } = useAuth()
+
+  // Already logged in → go to dashboard
+  useEffect(() => {
+    if (session) navigate('/dashboard', { replace: true })
+  }, [session, navigate])
 
   async function handleSubmit(e) {
     e.preventDefault()
     setError('')
     setLoading(true)
     const { error: err } = await supabase.auth.signInWithPassword({ email, password })
-    if (err) setError(err.message)
-    setLoading(false)
+    if (err) {
+      setError(err.message)
+      setLoading(false)
+    }
+    // On success, useEffect above handles redirect via session change
   }
 
   return (
