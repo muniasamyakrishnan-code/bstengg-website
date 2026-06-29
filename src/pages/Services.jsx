@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { services } from '../data/services'
+import { productOfferings, availableBrands } from '../data/company'
 
 export default function Services() {
   const [active, setActive] = useState(null)
@@ -31,6 +32,19 @@ export default function Services() {
               <span style={statLabel}>{label}</span>
             </div>
           ))}
+        </div>
+
+        {/* What We Offer */}
+        <div style={{ marginBottom: 48 }}>
+          <h2 style={sectionH2}>What We Offer</h2>
+          <div style={offeringsGrid} className="services-offerings-grid">
+            {productOfferings.map(o => (
+              <div key={o.label} style={offeringCard}>
+                <div style={offeringIcon}>{o.icon}</div>
+                <div style={offeringLabel}>{o.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Service cards */}
@@ -100,6 +114,14 @@ export default function Services() {
               </div>
             ))}
           </div>
+          <div style={{ marginTop: 24 }}>
+            <p style={{ fontSize: '0.78rem', fontWeight: 700, color: '#5a6272', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 12 }}>All Brands We Carry</p>
+            <div style={brandList}>
+              {availableBrands.map(b => (
+                <span key={b} style={brandChip}>{b}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -137,6 +159,11 @@ const detailLabel = { fontSize: '0.78rem', color: '#5a6272', fontWeight: 500, fl
 const toggleBtn = { marginTop: 14, width: '100%', padding: '8px', borderRadius: 8, border: '1px solid', fontWeight: 600, fontSize: '0.78rem', cursor: 'pointer', background: 'transparent', transition: 'all 0.2s' }
 
 const sectionH2 = { fontSize: '1.5rem', fontWeight: 800, color: '#1a3c6e', marginBottom: 24 }
+
+const offeringsGrid = { display: 'grid', gap: 16 }
+const offeringCard = { background: '#fff', borderRadius: 12, padding: '20px 14px', boxShadow: '0 2px 10px rgba(0,0,0,0.07)', textAlign: 'center', borderTop: '3px solid #c8993a' }
+const offeringIcon = { fontSize: '1.8rem', marginBottom: 8 }
+const offeringLabel = { fontSize: '0.8rem', fontWeight: 600, color: '#1a3c6e', lineHeight: 1.4 }
 const brandsGrid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }
 const brandCard = { background: '#fff', borderRadius: 12, padding: '20px', boxShadow: '0 2px 10px rgba(0,0,0,0.07)' }
 const brandTitle = { fontWeight: 700, color: '#1a3c6e', fontSize: '0.85rem', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }

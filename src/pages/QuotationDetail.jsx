@@ -219,9 +219,6 @@ export default function QuotationDetail() {
               <div style={{ fontSize: '13pt', fontWeight: 900, color: '#1a3c6e', letterSpacing: '0.3px', lineHeight: 1.15 }}>
                 {isIN ? 'BEST SUN TECH ENGINEERING PVT LTD' : 'BEST SUN TECH ENGINEERING SDN BHD'}
               </div>
-              <div style={{ fontSize: '7.5pt', color: '#c8993a', fontStyle: 'italic', marginTop: 2, marginBottom: 6 }}>
-                One Stop Solution for Your Laundry Business
-              </div>
               <div style={{ fontSize: '7.5pt', color: '#555', lineHeight: 1.75 }}>
                 {prov.address}<br />
                 <span style={{ color: '#777' }}>Tel:</span> {prov.tel}&nbsp;&nbsp;

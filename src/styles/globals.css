@@ -118,6 +118,8 @@ img {
 .about-two-col-equal  { grid-template-columns: 1fr 1fr; }
 .about-highlights     { grid-template-columns: 1fr 1fr; }
 .contacts-two-col     { grid-template-columns: 1fr 1fr; }
+.about-offerings-grid { grid-template-columns: repeat(5, 1fr); }
+.services-offerings-grid { grid-template-columns: repeat(5, 1fr); }
 
 /* QuotationDetail A4 — scrolls horizontally on mobile, prints at full width */
 .quotation-outer {
@@ -160,7 +162,10 @@ img {
   .about-two-col,
   .about-two-col-equal,
   .about-highlights,
-  .contacts-two-col {
+  .contacts-two-col,
+  .about-offerings-grid,
+  .services-offerings-grid,
+  .about-project-grid {
     grid-template-columns: 1fr;
   }
 

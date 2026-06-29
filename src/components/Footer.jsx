@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={styles.brand}>
-              <img src="/logo.svg" alt="Best Sun Tech Logo" style={styles.logoImg} />
+              <img src="/logo.png" alt="Best Sun Tech Logo" style={styles.logoImg} />
               <span style={styles.brandName}>Best Sun Tech Engineering</span>
             </div>
             <p style={styles.brandDesc}>

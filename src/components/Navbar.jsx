@@ -25,7 +25,7 @@ export default function Navbar() {
     <nav style={styles.nav}>
       <div style={styles.inner}>
         <Link to="/" style={styles.logo}>
-          <img src="/logo.svg" alt="Best Sun Tech Logo" style={styles.logoImg} />
+          <img src="/logo.png" alt="Best Sun Tech Logo" style={styles.logoImg} />
           <span style={styles.logoText}>
             Best Sun Tech
             <span style={styles.logoSub}>Engineering Sdn Bhd</span>
@@ -117,10 +117,12 @@ const styles = {
     flexShrink: 0,
   },
   logoImg: {
-    height: 48,
+    height: 44,
     width: 'auto',
     objectFit: 'contain',
-    filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.2))',
+    background: '#fff',
+    borderRadius: 8,
+    padding: '3px 6px',
   },
   logoText: {
     color: '#fff',

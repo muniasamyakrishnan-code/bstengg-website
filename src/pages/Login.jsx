@@ -21,7 +21,7 @@ export default function Login() {
       <div style={card}>
         {/* Logo + title */}
         <div style={header}>
-          <img src="/logo.svg" alt="Best Sun Tech" style={{ height: 64, width: 'auto', objectFit: 'contain' }} />
+          <img src="/logo.png" alt="Best Sun Tech" style={{ height: 64, width: 'auto', objectFit: 'contain' }} />
           <div style={coName}>Best Sun Tech Engineering</div>
           <div style={coSub}>Staff Portal — Please sign in to continue</div>
         </div>

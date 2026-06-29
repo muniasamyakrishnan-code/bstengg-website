@@ -1,4 +1,4 @@
-import { provider, client } from '../data/company'
+import { provider, client, productOfferings } from '../data/company'
 
 const infoRow = { display: 'flex', justifyContent: 'space-between', padding: '10px 0', borderBottom: '1px solid #f0f0f0', fontSize: '0.88rem', gap: 16 }
 const infoLabel = { color: '#5a6272', fontWeight: 500, flexShrink: 0 }
@@ -70,6 +70,29 @@ export default function About() {
           </div>
         </div>
 
+        {/* Mission */}
+        <div style={{ marginTop: 64 }}>
+          <span style={tag}>Our Mission</span>
+          <h2 style={sectionH2}>What Drives Us</h2>
+          <p style={{ ...bodyText, maxWidth: 760, fontSize: '1.05rem', lineHeight: 1.8, fontStyle: 'italic', borderLeft: '4px solid #c8993a', paddingLeft: 20 }}>
+            "{provider.mission}"
+          </p>
+        </div>
+
+        {/* What We Offer */}
+        <div style={{ marginTop: 64 }}>
+          <span style={tag}>Our Offerings</span>
+          <h2 style={sectionH2}>What We Offer</h2>
+          <div style={offeringsGrid} className="about-offerings-grid">
+            {productOfferings.map(o => (
+              <div key={o.label} style={offeringCard}>
+                <div style={offeringIcon}>{o.icon}</div>
+                <div style={offeringLabel}>{o.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Client section */}
         <div style={{ marginTop: 64 }}>
           <span style={tag}>Our Client</span>
@@ -110,6 +133,50 @@ export default function About() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Equipment Showcase */}
+        <div style={{ marginTop: 64 }}>
+          <span style={tag}>Our Equipment</span>
+          <h2 style={sectionH2}>Washer Repair Technicians</h2>
+          <p style={{ ...bodyText, marginBottom: 24 }}>
+            We specialise in the repair, servicing and maintenance of commercial and industrial washing machines, dryers, flatwork ironers, press machines and more.
+          </p>
+          <img
+            src="/images/equipment-repair.png"
+            alt="Washer Repair Technicians — Commercial Laundry Equipment"
+            style={fullImg}
+          />
+        </div>
+
+        {/* One Stop Solution Banner */}
+        <div style={{ marginTop: 40 }}>
+          <img
+            src="/images/equipment-banner.png"
+            alt="One Stop Solution for Your Laundry Business"
+            style={fullImg}
+          />
+        </div>
+
+        {/* Customised Services & Projects */}
+        <div style={{ marginTop: 64 }}>
+          <span style={tag}>Our Projects</span>
+          <h2 style={sectionH2}>Customised Services &amp; Projects</h2>
+          <p style={{ ...bodyText, marginBottom: 24 }}>
+            From full equipment installation and engineering works to breakdown repairs and system upgrades — see our projects in action.
+          </p>
+          <div style={projectGrid} className="about-project-grid">
+            {[
+              '/images/project-01.png',
+              '/images/project-02.png',
+              '/images/project-03.png',
+              '/images/project-04.png',
+            ].map((src, i) => (
+              <div key={i} style={projectCard}>
+                <img src={src} alt={`Project ${i + 1}`} style={projectImg} />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -164,3 +231,13 @@ const statItem = { display: 'flex', gap: 14, alignItems: 'flex-start', padding: 
 const valuesGrid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20, marginTop: 24 }
 const valueCard = { background: '#fff', borderRadius: 12, padding: '28px 24px', boxShadow: '0 2px 12px rgba(0,0,0,0.07)', borderTop: '4px solid #c8993a' }
 const valueIcon = { fontSize: '2rem', marginBottom: 14 }
+
+const fullImg = { width: '100%', borderRadius: 12, boxShadow: '0 4px 20px rgba(0,0,0,0.1)', display: 'block' }
+const projectGrid = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }
+const projectCard = { borderRadius: 12, overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.1)', border: '3px solid #c8993a', background: '#fff' }
+const projectImg = { width: '100%', height: 'auto', display: 'block' }
+
+const offeringsGrid = { display: 'grid', gap: 16, marginTop: 24 }
+const offeringCard = { background: '#fff', borderRadius: 12, padding: '20px 16px', boxShadow: '0 2px 10px rgba(0,0,0,0.07)', textAlign: 'center', borderTop: '3px solid #1a3c6e' }
+const offeringIcon = { fontSize: '2rem', marginBottom: 10 }
+const offeringLabel = { fontSize: '0.82rem', fontWeight: 600, color: '#1a3c6e', lineHeight: 1.4 }
