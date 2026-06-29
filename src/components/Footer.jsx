@@ -7,6 +7,9 @@ export default function Footer() {
 
   return (
     <footer style={s.footer}>
+      {/* Gold top accent */}
+      <div style={s.topAccent} />
+
       <div style={s.inner}>
         <div style={s.grid} className="footer-grid">
 
@@ -50,7 +53,9 @@ export default function Footer() {
                 'Aqua Wet Cleaning',
                 'Equipment Supply & Trade-In',
               ].map(item => (
-                <span key={item} style={s.listItem}>→ {item}</span>
+                <span key={item} style={s.listItem}>
+                  <span style={s.listArrow}>›</span> {item}
+                </span>
               ))}
             </div>
           </div>
@@ -67,7 +72,9 @@ export default function Footer() {
                 ['/customers', 'Our Clients'],
                 ['/contact', 'Contact'],
               ].map(([to, label]) => (
-                <Link key={to} to={to} style={s.footerLink}>{label}</Link>
+                <Link key={to} to={to} style={s.footerLink}>
+                  <span style={s.listArrow}>›</span> {label}
+                </Link>
               ))}
             </div>
           </div>
@@ -113,9 +120,14 @@ export default function Footer() {
 
 const s = {
   footer: {
-    background: 'linear-gradient(135deg, #0f2447 0%, #1a3c6e 100%)',
+    background: 'linear-gradient(160deg, #07122e 0%, #0f2447 50%, #1a3c6e 100%)',
     color: 'rgba(255,255,255,0.8)',
     marginTop: 80,
+    position: 'relative',
+  },
+  topAccent: {
+    height: 3,
+    background: 'linear-gradient(90deg, transparent 0%, #c8993a 30%, #f0c060 60%, #c8993a 80%, transparent 100%)',
   },
   inner: {
     maxWidth: 1200,
@@ -151,14 +163,14 @@ const s = {
     fontSize: '0.85rem',
     lineHeight: 1.65,
     marginBottom: 14,
-    opacity: 0.75,
+    opacity: 0.72,
   },
   reg: {
     display: 'flex',
     flexDirection: 'column',
     gap: 3,
     fontSize: '0.73rem',
-    opacity: 0.45,
+    opacity: 0.42,
     marginBottom: 16,
   },
   actions: {
@@ -167,19 +179,22 @@ const s = {
   },
   waBtn: {
     display: 'inline-block',
-    background: '#25d366',
+    background: 'linear-gradient(135deg, #1db954, #25d366)',
     color: '#fff',
-    padding: '8px 16px',
-    borderRadius: 8,
+    padding: '9px 20px',
+    borderRadius: 9999,
     fontSize: '0.82rem',
-    fontWeight: 600,
+    fontWeight: 700,
+    textDecoration: 'none',
+    boxShadow: '0 4px 16px rgba(37,211,102,0.3)',
+    transition: 'transform 0.2s, box-shadow 0.2s',
   },
   colTitle: {
     color: '#c8993a',
-    fontSize: '0.78rem',
+    fontSize: '0.75rem',
     fontWeight: 700,
     textTransform: 'uppercase',
-    letterSpacing: 1,
+    letterSpacing: 1.2,
     marginBottom: 16,
     paddingBottom: 8,
     borderBottom: '1px solid rgba(200,153,58,0.25)',
@@ -189,6 +204,11 @@ const s = {
     flexDirection: 'column',
     gap: 9,
   },
+  listArrow: {
+    color: '#c8993a',
+    fontWeight: 700,
+    marginRight: 4,
+  },
   listItem: {
     fontSize: '0.84rem',
     opacity: 0.75,
@@ -196,10 +216,12 @@ const s = {
   },
   footerLink: {
     fontSize: '0.84rem',
-    opacity: 0.8,
-    transition: 'opacity 0.2s',
+    opacity: 0.78,
+    transition: 'opacity 0.2s, color 0.2s',
     cursor: 'pointer',
     display: 'block',
+    textDecoration: 'none',
+    color: 'rgba(255,255,255,0.78)',
   },
   contactList: {
     display: 'flex',
@@ -220,16 +242,17 @@ const s = {
   contactLink: {
     color: '#c8deff',
     fontWeight: 500,
+    textDecoration: 'none',
   },
   bottom: {
-    borderTop: '1px solid rgba(255,255,255,0.1)',
+    borderTop: '1px solid rgba(255,255,255,0.08)',
     paddingTop: 20,
     display: 'flex',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
     gap: 8,
     fontSize: '0.78rem',
-    opacity: 0.55,
+    opacity: 0.5,
   },
   tagline: {
     fontStyle: 'italic',

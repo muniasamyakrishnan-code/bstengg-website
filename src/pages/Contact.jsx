@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { provider } from '../data/company'
+import { useReveal } from '../hooks/useReveal'
 
 // NOTE FOR DEPLOYMENT:
 // After deploying to Netlify, go to:
@@ -7,6 +8,7 @@ import { provider } from '../data/company'
 //   Set email to: muniasamyakrishnan@gmail.com
 
 export default function Contact() {
+  useReveal()
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
 
@@ -40,9 +42,12 @@ export default function Contact() {
 
   return (
     <div>
-      {/* Page header */}
-      <div style={pageHeader}>
-        <div style={pageOverlay} />
+      {/* ── Page Hero ── */}
+      <div style={pageHero}>
+        <div style={heroBg} />
+        <div style={heroGrid} />
+        <div style={heroGlow1} />
+        <div style={heroGlow2} />
         <div className="container" style={{ position: 'relative' }}>
           <p style={breadcrumb}>Home / Contact</p>
           <h1 style={pageTitle} className="page-title">Contact Us</h1>
@@ -54,30 +59,31 @@ export default function Contact() {
         <div style={twoCol} className="contact-two-col">
 
           {/* ── Left: contact info ── */}
-          <div>
-            <h2 style={sectionH2}>Get In Touch</h2>
-            <p style={{ color: '#5a6272', lineHeight: 1.7, marginBottom: 32, fontSize: '0.95rem' }}>
+          <div className="reveal-left">
+            <span style={tag}>Get In Touch</span>
+            <h2 style={sectionH2}>Let's Talk</h2>
+            <p style={{ color: '#5a6272', lineHeight: 1.75, marginBottom: 32, fontSize: '0.95rem' }}>
               We're here to help with all your commercial laundry equipment needs —
               from routine maintenance to emergency breakdown support and spare parts supply.
             </p>
 
             <div style={infoGrid}>
               <div style={infoCard}>
-                <div style={infoIcon}>📍</div>
+                <div style={infoIconWrap}>📍</div>
                 <div>
                   <div style={infoLabel}>Our Address</div>
                   <div style={infoVal}>{provider.address}</div>
                 </div>
               </div>
               <div style={infoCard}>
-                <div style={infoIcon}>📱</div>
+                <div style={infoIconWrap}>📱</div>
                 <div>
                   <div style={infoLabel}>Mobile / WhatsApp</div>
                   <a href={`tel:${provider.hp}`} style={infoLink}>{provider.hp}</a>
                 </div>
               </div>
               <div style={infoCard}>
-                <div style={infoIcon}>☎️</div>
+                <div style={infoIconWrap}>☎️</div>
                 <div>
                   <div style={infoLabel}>Office Tel</div>
                   <a href={`tel:${provider.tel}`} style={infoLink}>{provider.tel}</a>
@@ -85,7 +91,7 @@ export default function Contact() {
                 </div>
               </div>
               <div style={infoCard}>
-                <div style={infoIcon}>✉️</div>
+                <div style={infoIconWrap}>✉️</div>
                 <div>
                   <div style={infoLabel}>Email</div>
                   <a href={`mailto:${provider.email}`} style={infoLink}>{provider.email}</a>
@@ -109,16 +115,19 @@ export default function Contact() {
           </div>
 
           {/* ── Right: enquiry form ── */}
-          <div>
+          <div className="reveal-right">
             <div style={formCard}>
-              <h2 style={{ ...sectionH2, marginBottom: 8 }}>Send an Enquiry</h2>
-              <p style={{ color: '#5a6272', fontSize: '0.85rem', marginBottom: 24 }}>
+              {/* Gold top bar */}
+              <div style={{ height: 4, background: 'linear-gradient(90deg, #c8993a, #f0c060, #c8993a)', borderRadius: '14px 14px 0 0', margin: '-32px -32px 28px', position: 'relative' }} />
+
+              <h2 style={{ ...sectionH2, marginBottom: 6 }}>Send an Enquiry</h2>
+              <p style={{ color: '#5a6272', fontSize: '0.85rem', marginBottom: 28 }}>
                 Fill in the form below and we'll get back to you within 1 business day.
               </p>
 
               {status === 'success' ? (
                 <div style={successBox}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: 12 }}>✅</div>
+                  <div style={{ fontSize: '3rem', marginBottom: 12 }}>✅</div>
                   <h3 style={{ fontWeight: 700, color: '#1a7a4a', marginBottom: 8 }}>Enquiry Sent!</h3>
                   <p style={{ color: '#5a6272', fontSize: '0.9rem' }}>
                     Thank you for reaching out. We'll be in touch shortly.
@@ -199,7 +208,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div style={{ marginBottom: 20 }}>
+                  <div style={{ marginBottom: 22 }}>
                     <label style={fLabel}>Message *</label>
                     <textarea
                       name="message"
@@ -235,35 +244,41 @@ export default function Contact() {
   )
 }
 
-const pageHeader = { background: 'linear-gradient(135deg, #1a3c6e 0%, #0f2447 100%)', padding: '64px 0 48px', position: 'relative', overflow: 'hidden' }
-const pageOverlay = { position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(200,153,58,0.08) 1px, transparent 1px)', backgroundSize: '24px 24px' }
+/* ── Styles ── */
+const pageHero = { position: 'relative', padding: '72px 0 52px', overflow: 'hidden' }
+const heroBg = { position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #1a3c6e 0%, #0f2447 60%, #07122e 100%)' }
+const heroGrid = { position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(200,153,58,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px' }
+const heroGlow1 = { position: 'absolute', top: '-60px', right: '5%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(200,153,58,0.12) 0%, transparent 70%)', borderRadius: '50%' }
+const heroGlow2 = { position: 'absolute', bottom: '-80px', left: '10%', width: 320, height: 320, background: 'radial-gradient(circle, rgba(26,90,175,0.18) 0%, transparent 70%)', borderRadius: '50%' }
+
 const breadcrumb = { color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', marginBottom: 12 }
 const pageTitle = { color: '#fff', fontSize: '2.5rem', fontWeight: 900, marginBottom: 10 }
 const pageSub = { color: 'rgba(255,255,255,0.7)', fontSize: '1rem' }
 
-const twoCol = { display: 'grid', gap: 48, alignItems: 'start' }
+const twoCol = { display: 'grid', gap: 52, alignItems: 'start' }
+const tag = { display: 'inline-block', background: 'rgba(200,153,58,0.12)', color: '#c8993a', padding: '4px 14px', borderRadius: 20, fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 10, border: '1px solid rgba(200,153,58,0.2)' }
 const sectionH2 = { fontSize: '1.5rem', fontWeight: 800, color: '#1a3c6e', marginBottom: 16 }
 
-const infoGrid = { display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }
-const infoCard = { display: 'flex', gap: 16, alignItems: 'flex-start', background: '#f4f6fb', borderRadius: 10, padding: '16px' }
-const infoIcon = { fontSize: '1.5rem', flexShrink: 0, marginTop: 2 }
+const infoGrid = { display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 32 }
+const infoCard = { display: 'flex', gap: 16, alignItems: 'flex-start', background: 'linear-gradient(135deg, #f8faff 0%, #f0f4fb 100%)', borderRadius: 12, padding: '16px', border: '1px solid rgba(26,60,110,0.07)', transition: 'box-shadow 0.2s' }
+const infoIconWrap = { fontSize: '1.5rem', flexShrink: 0, marginTop: 2 }
 const infoLabel = { fontSize: '0.72rem', fontWeight: 700, color: '#5a6272', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 4 }
 const infoVal = { fontSize: '0.88rem', color: '#1a3c6e', fontWeight: 500, lineHeight: 1.5 }
-const infoLink = { fontSize: '0.88rem', color: '#1a5aaf', fontWeight: 600 }
+const infoLink = { fontSize: '0.88rem', color: '#1a5aaf', fontWeight: 600, textDecoration: 'none' }
 
-const regBox = { background: '#fff', borderRadius: 10, padding: '20px', boxShadow: '0 2px 10px rgba(0,0,0,0.07)', borderLeft: '4px solid #c8993a' }
-const regTitle = { fontSize: '0.72rem', fontWeight: 700, color: '#5a6272', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 12 }
-const regRow = { display: 'flex', gap: 12, padding: '6px 0', borderBottom: '1px solid #f0f0f0', fontSize: '0.85rem' }
+const regBox = { background: '#fff', borderRadius: 12, padding: '22px', boxShadow: '0 4px 16px rgba(0,0,0,0.07)', borderLeft: '4px solid #c8993a' }
+const regTitle = { fontSize: '0.72rem', fontWeight: 700, color: '#5a6272', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 14 }
+const regRow = { display: 'flex', gap: 12, padding: '7px 0', borderBottom: '1px solid #f0f0f0', fontSize: '0.85rem' }
 const regLabel = { color: '#5a6272', width: 90, flexShrink: 0, fontWeight: 500 }
 const regVal = { color: '#1a3c6e', fontWeight: 600 }
 
-const formCard = { background: '#fff', borderRadius: 14, padding: '32px', boxShadow: '0 4px 24px rgba(0,0,0,0.1)', border: '1px solid #e8edf5' }
+const formCard = { background: '#fff', borderRadius: 16, padding: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.1)', border: '1px solid rgba(26,60,110,0.07)', overflow: 'hidden' }
 const formRow = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 20 }
 const formGroup = { display: 'flex', flexDirection: 'column' }
-const fLabel = { fontSize: '0.78rem', fontWeight: 600, color: '#444', marginBottom: 6, textTransform: 'uppercase', letterSpacing: 0.4 }
-const fInput = { border: '1.5px solid #dde3ef', borderRadius: 8, padding: '10px 14px', fontSize: '0.9rem', color: '#222', outline: 'none', width: '100%', boxSizing: 'border-box', fontFamily: 'inherit', background: '#fafbfd' }
+const fLabel = { fontSize: '0.75rem', fontWeight: 700, color: '#444', marginBottom: 7, textTransform: 'uppercase', letterSpacing: 0.5 }
+const fInput = { border: '1.5px solid #dde3ef', borderRadius: 10, padding: '11px 14px', fontSize: '0.9rem', color: '#222', outline: 'none', width: '100%', boxSizing: 'border-box', fontFamily: 'inherit', background: '#fafbfd', transition: 'border-color 0.2s' }
 
-const submitBtn = { width: '100%', background: '#1a3c6e', color: '#fff', border: 'none', borderRadius: 10, padding: '14px', fontSize: '1rem', fontWeight: 700, cursor: 'pointer', transition: 'background 0.2s' }
-const successBox = { textAlign: 'center', padding: '40px 20px' }
-const resetBtn = { marginTop: 20, background: '#1a3c6e', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 24px', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem' }
-const errorBox = { background: '#fff5f5', border: '1px solid #ffcccc', color: '#c0392b', borderRadius: 8, padding: '12px 16px', fontSize: '0.85rem', marginBottom: 16 }
+const submitBtn = { width: '100%', background: 'linear-gradient(135deg, #1a3c6e 0%, #0f2447 100%)', color: '#fff', border: 'none', borderRadius: 12, padding: '15px', fontSize: '1rem', fontWeight: 700, cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 4px 20px rgba(26,60,110,0.3)', letterSpacing: 0.3 }
+const successBox = { textAlign: 'center', padding: '48px 20px' }
+const resetBtn = { marginTop: 20, background: 'linear-gradient(135deg, #1a3c6e, #0f2447)', color: '#fff', border: 'none', borderRadius: 10, padding: '11px 28px', fontWeight: 700, cursor: 'pointer', fontSize: '0.9rem' }
+const errorBox = { background: '#fff5f5', border: '1px solid #ffcccc', color: '#c0392b', borderRadius: 10, padding: '12px 16px', fontSize: '0.85rem', marginBottom: 18 }
