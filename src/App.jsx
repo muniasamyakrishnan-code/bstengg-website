@@ -13,6 +13,7 @@ import QuotationDetail from './pages/QuotationDetail'
 import QuotationBuilder from './pages/QuotationBuilder'
 import QuotationNew from './pages/QuotationNew'
 import Customers from './pages/Customers'
+import Contact from './pages/Contact'
 import { supabase } from './lib/supabase'
 
 // Pages that require login (only when Supabase is configured)
@@ -31,15 +32,6 @@ function ProtectedRoute({ children }) {
 export default function App() {
   const { session } = useAuth()
 
-  // Show login page (no navbar/footer)
-  if (supabase && session === null) {
-    return (
-      <Routes>
-        <Route path="*" element={<Login />} />
-      </Routes>
-    )
-  }
-
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
@@ -50,7 +42,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/customers" element={<Customers />} />
-          <Route path="/login" element={<Navigate to="/" replace />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
 
           {/* Protected pages */}
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />

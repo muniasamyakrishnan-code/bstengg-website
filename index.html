@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Best Sun Tech Engineering Sdn Bhd</title>
+    <title>Best Sun Tech Engineering Sdn Bhd | Commercial Laundry Equipment Malaysia</title>
+    <meta name="description" content="Best Sun Tech Engineering Sdn Bhd — Malaysia's trusted specialist for commercial and industrial laundry equipment maintenance, repair, spare parts supply and engineering services since 2006." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,5 +13,15 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Netlify Forms detection — required for React SPA -->
+    <!-- After deploy: Netlify Dashboard → Forms → enquiry → Notifications → Add email: muniasamyakrishnan@gmail.com -->
+    <form name="enquiry" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
   </body>
 </html>

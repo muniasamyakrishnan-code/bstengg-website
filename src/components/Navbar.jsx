@@ -3,10 +3,16 @@ import { NavLink, Link } from 'react-router-dom'
 import { useAuth } from '../lib/AuthContext'
 import { supabase } from '../lib/supabase'
 
-const links = [
+// Always visible public links
+const publicLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
+  { to: '/contact', label: 'Contact' },
+]
+
+// Only visible when logged in
+const authLinks = [
   { to: '/dashboard', label: 'Dashboard' },
   { to: '/quotations', label: 'Quotations' },
   { to: '/customers', label: 'Customers' },
@@ -16,6 +22,8 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const { session } = useAuth()
+
+  const allLinks = session ? [...publicLinks, ...authLinks] : publicLinks
 
   function handleSignOut() {
     if (supabase) supabase.auth.signOut()
@@ -34,7 +42,7 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div style={styles.links} className="nav-links-wrap">
-          {links.map(l => (
+          {allLinks.map(l => (
             <NavLink
               key={l.to}
               to={l.to}
@@ -71,7 +79,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div style={styles.mobileMenu}>
-          {links.map(l => (
+          {allLinks.map(l => (
             <NavLink
               key={l.to}
               to={l.to}
