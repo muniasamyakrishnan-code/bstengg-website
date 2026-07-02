@@ -195,7 +195,7 @@ export default function NewMachines() {
 
         {/* ── Machine sections ── */}
         {displayed.map((cat, ci) => (
-          <section key={cat.id} style={section} className={`reveal delay-${(ci % 4) + 1}`}>
+          <section key={cat.id} style={section}>
 
             {/* Header */}
             <div style={{ ...sectionHeader, borderLeft: `5px solid ${cat.color}` }}>
