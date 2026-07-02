@@ -9,15 +9,14 @@ const publicLinks = [
   { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
   { to: '/products', label: 'Products' },
-  { to: '/customers', label: 'Clients' },
+  { to: '/customers', label: 'Customers' },
+  { to: '/new-machines', label: 'New Machines' },
+  { to: '/spare-parts', label: 'Spare parts' },
   { to: '/contact', label: 'Contact' },
 ]
 
 // Only visible when logged in
 const authLinks = [
-  { to: '/dashboard', label: 'Dashboard' },
-  { to: '/quotations', label: 'Quotations' },
-  { to: '/customers', label: 'Customers' },
   { to: '/contacts', label: 'Contacts' },
 ]
 

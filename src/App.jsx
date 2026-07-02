@@ -15,6 +15,8 @@ import QuotationNew from './pages/QuotationNew'
 import Customers from './pages/Customers'
 import Contact from './pages/Contact'
 import Products from './pages/Products'
+import SpareParts from './pages/SpareParts'
+import NewMachines from './pages/NewMachines'
 import { supabase } from './lib/supabase'
 
 // Pages that require login (only when Supabase is configured)
@@ -45,6 +47,8 @@ export default function App() {
           <Route path="/customers" element={<Customers />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/spare-parts" element={<SpareParts />} />
+          <Route path="/new-machines" element={<NewMachines />} />
           <Route path="/login" element={<Login />} />
 
           {/* Protected pages */}
