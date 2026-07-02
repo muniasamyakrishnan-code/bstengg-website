@@ -265,7 +265,7 @@ export default function NewMachines() {
             </p>
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="/contact" style={ctaBtnPrimary}>📨 Request Quotation</a>
-              <a href="tel:+60192828 9180" style={ctaBtnSecondary}>📞 019-2828 9180</a>
+              <a href="tel:+60192829180" style={ctaBtnSecondary}>📞 019-2829180</a>
             </div>
           </div>
         </div>

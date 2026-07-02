@@ -80,7 +80,7 @@ export default function Customers() {
             <p style={{ color: 'rgba(255,255,255,0.75)', marginBottom: 24, fontSize: '0.95rem' }}>
               Contact us for a maintenance contract, equipment repair, or supply quotation.
             </p>
-            <a href="tel:019-28289180" style={ctaBtn}>📞 019-2828 9180</a>
+            <a href="tel:+60192829180" style={ctaBtn}>📞 019-2829180</a>
           </div>
         </div>
       </div>

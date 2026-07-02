@@ -107,7 +107,7 @@ export default function QuotationDetail() {
     `${q.preparedBy || 'Best Sun Tech Engineering'}`,
     `${q.preparedTitle || ''}`,
     q.branch === 'IN' ? 'Best Sun Tech Engineering Pvt Ltd' : 'Best Sun Tech Engineering Sdn Bhd',
-    q.branch === 'IN' ? 'Tel: +91 82484 75435 | HP: +91 86376 15010' : 'HP: 019-2828 9180 | Tel: 603-4813 9407',
+    q.branch === 'IN' ? 'Tel: +91 82484 75435 | HP: +91 86376 15010' : 'HP: 019-2829180 | Tel: 603-4813 9407',
     'Email: bstengg@yahoo.com',
   ].join('\n')
 

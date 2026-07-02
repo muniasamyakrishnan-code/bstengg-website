@@ -4,7 +4,7 @@ export const provider = {
   tin: 'C20506530090',
   sst: 'W10-1808-31022726',
   address: 'C-03-A, Putra Majestik, No.2A, Jalan Kasipillay, off Jalan Ipoh, 51200 Kuala Lumpur',
-  hp: '019-2828 9180',
+  hp: '019-2829180',
   tel: '03-4041 0250',
   fax: '03-4051 0250',
   email: 'bstengg@yahoo.com',
