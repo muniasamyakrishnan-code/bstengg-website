@@ -1,31 +1,20 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { useAuth } from '../lib/AuthContext'
-import { supabase } from '../lib/supabase'
 
-// Always visible public links
-const publicLinks = [
+const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
-  { to: '/products', label: 'Products' },
-  { to: '/customers', label: 'Customers' },
   { to: '/new-machines', label: 'New Machines' },
   { to: '/spare-parts', label: 'Spare parts' },
+  { to: '/products', label: 'Products' },
+  { to: '/customers', label: 'Customers' },
   { to: '/contact', label: 'Contact' },
-]
-
-// Only visible when logged in
-const authLinks = [
-  { to: '/contacts', label: 'Contacts' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { session } = useAuth()
-
-  const allLinks = session ? [...publicLinks, ...authLinks] : publicLinks
 
   useEffect(() => {
     function onScroll() {
@@ -34,10 +23,6 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  function handleSignOut() {
-    if (supabase) supabase.auth.signOut()
-  }
 
   return (
     <>
@@ -87,22 +72,6 @@ export default function Navbar() {
         .nav-hamburger-btn:hover {
           background: rgba(255,255,255,0.15);
         }
-        .nav-signout-btn {
-          background: rgba(255,255,255,0.08);
-          border: 1px solid rgba(255,255,255,0.2);
-          color: rgba(255,255,255,0.85);
-          padding: 6px 14px;
-          border-radius: 9999px;
-          font-size: 0.78rem;
-          font-weight: 600;
-          cursor: pointer;
-          flex-shrink: 0;
-          transition: all 0.2s;
-        }
-        .nav-signout-btn:hover {
-          background: rgba(255,255,255,0.18);
-          color: #fff;
-        }
         .mobile-nav-link {
           padding: 13px 18px;
           border-radius: 10px;
@@ -120,7 +89,6 @@ export default function Navbar() {
         @media (max-width: 768px) {
           .nav-links-wrap { display: none !important; }
           .nav-cta-btn { display: none !important; }
-          .nav-signout-btn { display: none !important; }
           .nav-hamburger-btn { display: flex !important; }
         }
         @media (min-width: 769px) {
@@ -151,7 +119,7 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <div style={styles.links} className="nav-links-wrap">
-            {allLinks.map(l => (
+            {navLinks.map(l => (
               <NavLink
                 key={l.to}
                 to={l.to}
@@ -172,13 +140,6 @@ export default function Navbar() {
             📞 019-2828 9180
           </a>
 
-          {/* Sign out (only when logged in) */}
-          {session && supabase && (
-            <button onClick={handleSignOut} className="nav-signout-btn">
-              Sign Out
-            </button>
-          )}
-
           {/* Mobile hamburger */}
           <button
             className="nav-hamburger-btn"
@@ -192,9 +153,8 @@ export default function Navbar() {
         {/* Mobile menu */}
         {open && (
           <div style={styles.mobileMenu}>
-            {/* Gold accent line */}
             <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(200,153,58,0.5), transparent)', marginBottom: 8 }} />
-            {allLinks.map(l => (
+            {navLinks.map(l => (
               <NavLink
                 key={l.to}
                 to={l.to}
@@ -227,25 +187,6 @@ export default function Navbar() {
               >
                 📞 Call 019-2828 9180
               </a>
-              {session && supabase && (
-                <button
-                  onClick={handleSignOut}
-                  style={{
-                    width: '100%',
-                    marginTop: 8,
-                    background: 'rgba(255,255,255,0.07)',
-                    border: '1px solid rgba(255,255,255,0.15)',
-                    color: 'rgba(255,255,255,0.8)',
-                    padding: '10px',
-                    borderRadius: 10,
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    fontSize: '0.88rem',
-                  }}
-                >
-                  Sign Out
-                </button>
-              )}
             </div>
           </div>
         )}
@@ -267,7 +208,7 @@ const styles = {
     height: 64,
     display: 'flex',
     alignItems: 'center',
-    gap: 32,
+    gap: 24,
   },
   logo: {
     display: 'flex',
@@ -303,6 +244,7 @@ const styles = {
     gap: 2,
     flex: 1,
     alignItems: 'center',
+    flexWrap: 'wrap',
   },
   mobileMenu: {
     background: 'rgba(8,18,45,0.97)',
