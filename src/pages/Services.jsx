@@ -5,7 +5,7 @@ import { useReveal } from '../hooks/useReveal'
 import { useCounter } from '../hooks/useCounter'
 
 const STATS = [
-  { val: '15+', label: 'Years in Malaysia' },
+  { val: '20+', label: 'Years in Malaysia' },
   { val: '10', label: 'Service Categories' },
   { val: '30+', label: 'Hotel Clients' },
   { val: '24/7', label: 'Emergency Support' },
@@ -63,19 +63,6 @@ export default function Services() {
           ))}
         </div>
 
-        {/* ── What We Offer ── */}
-        <div style={{ marginBottom: 56 }}>
-          <span style={tag}>Our Offerings</span>
-          <h2 style={sectionH2}>What We Offer</h2>
-          <div style={offeringsGrid} className="services-offerings-grid">
-            {productOfferings.map((o, i) => (
-              <div key={o.label} style={offeringCard} className={`reveal delay-${(i % 6) + 1} hover-lift`}>
-                <div style={offeringIcon}>{o.icon}</div>
-                <div style={offeringLabel}>{o.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* ── Service cards ── */}
         <div style={{ marginBottom: 16 }}>
@@ -131,36 +118,6 @@ export default function Services() {
           ))}
         </div>
 
-        {/* ── Equipment brands ── */}
-        <div style={{ marginTop: 72 }}>
-          <span style={tag}>Brands We Service</span>
-          <h2 style={sectionH2}>Equipment Brands We Service</h2>
-          <div style={brandsGrid}>
-            {[
-              { cat: 'Washers', brands: ['IPSO', 'Electrolux', 'Huebsch', 'Panasonic', 'Cissell'] },
-              { cat: 'Dryers', brands: ['ADC', 'Huebsch', 'Cissell', 'Electrolux'] },
-              { cat: 'Press Machines', brands: ['Cissell Hot Plate', 'Pony', 'Form Finisher', 'Utility Press'] },
-              { cat: 'Dry Clean', brands: ['Pony P1', 'Pony P2', 'Earlstar', 'Realstar'] },
-            ].map((g, i) => (
-              <div key={g.cat} style={brandCard} className={`reveal delay-${i + 1} hover-lift`}>
-                <h4 style={brandTitle}>{g.cat}</h4>
-                <div style={brandList}>
-                  {g.brands.map(b => (
-                    <span key={b} style={brandChip}>{b}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div style={{ marginTop: 28, background: '#fff', borderRadius: 14, padding: '24px', boxShadow: '0 4px 16px rgba(0,0,0,0.07)' }} className="reveal">
-            <p style={{ fontSize: '0.78rem', fontWeight: 700, color: '#5a6272', textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 14 }}>All Brands We Carry</p>
-            <div style={brandList}>
-              {availableBrands.map(b => (
-                <span key={b} style={brandChip}>{b}</span>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )

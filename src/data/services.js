@@ -16,7 +16,7 @@ export const services = [
     icon: '🌊',
     title: 'Washer Repair',
     badge: 'Repair',
-    equipment: 'IPSO, Electrolux, Huebsch, Panasonic',
+    equipment: 'Industrial washer repair — any type of washer',
     count: '40+ jobs',
     notes: 'Drain valves, water valves, bearings, PCBs, door seals',
     description:
@@ -28,7 +28,7 @@ export const services = [
     icon: '♨️',
     title: 'Dryer Repair',
     badge: 'Repair',
-    equipment: 'ADC, Huebsch, Cissell',
+    equipment: 'Industrial dryer repair — any type of dryer',
     count: '35+ jobs',
     notes: 'Steam coils, motors, controllers, drive belts',
     description:
@@ -52,7 +52,7 @@ export const services = [
     icon: '👔',
     title: 'Press Machine Repair',
     badge: 'Repair',
-    equipment: 'Cissell Hot Plate, Pony, Form Finisher, Utility Press',
+    equipment: 'Industrial press machine repair — any type of press machine',
     count: '20+ jobs',
     notes: 'Padding, air valves, PCBs, hydraulic cylinders',
     description:
@@ -64,7 +64,7 @@ export const services = [
     icon: '✨',
     title: 'Dry Clean Machine',
     badge: 'Repair',
-    equipment: 'Pony, Earlstar, Realstar',
+    equipment: 'Industrial dry clean machine repair — any type of dry clean machine',
     count: '15+ jobs',
     notes: 'Solvent pumps, door gaskets, steam coils, bearings',
     description:
@@ -88,7 +88,7 @@ export const services = [
     icon: '📦',
     title: 'Parts & Supplies',
     badge: 'Supply',
-    equipment: 'Chemicals, Laundry Items, Mechanical Parts',
+    equipment: 'Industrial laundry equipment and spare parts — all kinds',
     count: '10+ supply orders',
     notes: 'Tag guns, chemicals, bearings, seals, hoses, wash basins',
     description:
@@ -112,7 +112,7 @@ export const services = [
     icon: '🍴',
     title: 'Kitchen & Other',
     badge: 'Repair',
-    equipment: 'Bakery Mixer, Kitchen Motors, Pump Room',
+    equipment: 'All kinds of kitchen equipment',
     count: '8+ jobs',
     notes: 'Bearing changes, soft starters, heater repairs',
     description:

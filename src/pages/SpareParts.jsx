@@ -30,7 +30,7 @@ export default function SpareParts() {
             <span style={heroBadge}>🏭 10+ Brands</span>
             <span style={heroBadge}>⚡ Fast Sourcing</span>
             <span style={heroBadge}>✅ OEM Quality</span>
-            <span style={heroBadge}>📋 SST Registered</span>
+            <span style={heroBadge}>📋 GST Registered</span>
           </div>
         </div>
       </div>

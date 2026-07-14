@@ -81,7 +81,7 @@ export default function Home() {
   const featuredHotels = allHotels.slice(0, 12)
 
   const stats = [
-    { val: '15+', label: 'Years in Malaysia',     icon: '📅' },
+    { val: '20+', label: 'Years in Malaysia',     icon: '📅' },
     { val: `${allHotels.length}+`, label: 'Hotel & Resort Clients', icon: '🏨' },
     { val: '10+', label: 'Brands Serviced',        icon: '🔧' },
     { val: '24/7', label: 'Emergency Support',     icon: '⚡' },
@@ -107,8 +107,10 @@ export default function Home() {
             Expert Laundry &amp;<br />Engineering Services
           </h1>
           <p style={s.heroSub} className="anim-fade-in-up">
-            Best Sun Tech Engineering Sdn Bhd — Malaysia's trusted specialist for commercial
-            and industrial laundry equipment maintenance, repair, and supply since {provider.established}.
+            <span style={{ color: '#f0c060', fontWeight: 700 }}>Best Sun Tech Engineering Sdn Bhd</span> — Malaysia's trusted specialist in commercial &amp; industrial laundry equipment sales, service, and maintenance for over 20 years, delivering excellence to star-rated hotels and leading businesses across the region.
+          </p>
+          <p style={{ ...s.heroSub, marginTop: 12 }} className="anim-fade-in-up">
+            Now expanding into India through <span style={{ color: '#f0c060', fontWeight: 700 }}>Best Sun Tech Engineering Pvt Ltd</span>, operated under the Malaysian parent company.
           </p>
           <div style={s.heroActions} className="anim-fade-in-up">
             <Link to="/services" style={s.heroBtnPrimary} className="btn-primary">Explore Services</Link>
@@ -118,7 +120,7 @@ export default function Home() {
             <span style={s.heroChip}>⭐ Est. {provider.established}</span>
             <span style={s.heroChip}>🔧 10+ Service Types</span>
             <span style={s.heroChip}>🏭 Industrial &amp; Commercial</span>
-            <span style={s.heroChip}>✅ SST Registered</span>
+            <span style={s.heroChip}>✅ GST Registered</span>
           </div>
         </div>
 

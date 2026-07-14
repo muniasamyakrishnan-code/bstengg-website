@@ -156,13 +156,10 @@ export default function NewMachines() {
           <p style={breadcrumb}>Home / New Machines</p>
           <h1 style={pageTitle} className="page-title">New Machines Supply</h1>
           <p style={pageSub}>
-            Commercial laundry equipment supply — washers, dryers, ironers, presses, steam generators and sorters
+            Commercial laundry equipment supply — Industrial washers, dryers, press machines, ironboards, boilers, steam generators, flatwork ironers, folders and feeders
           </p>
           <div style={heroBadges}>
             <span style={heroBadge}>🏭 BST Brand Machines</span>
-            <span style={heroBadge}>🇮🇹 Pony Italy</span>
-            <span style={heroBadge}>🌀 AMKO Ironers</span>
-            <span style={heroBadge}>📋 Quotation Available</span>
           </div>
         </div>
       </div>

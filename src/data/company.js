@@ -11,10 +11,10 @@ export const provider = {
   invoiceTerms: 'Net 30 days after invoice date',
   tagline: 'One Stop Solution for Your Laundry Business',
   description:
-    'Best Sun Tech Engineering Sdn Bhd is a well-established specialist in commercial and industrial laundry equipment, spare parts supply and engineering services in Malaysia since 2011. We provide technical services and world-leading equipment from top global brands for 5-star hotels, resorts, commercial laundry operators and industrial clients across Malaysia.',
+    'Best Sun Tech Engineering Sdn Bhd is a well-established specialist in commercial and industrial laundry equipment, spare parts supply and engineering services in Malaysia since 2006. We provide technical services and world-leading equipment from top global brands for 5-star hotels, resorts, commercial laundry operators and industrial clients across Malaysia.',
   mission:
     'We strive to provide our customers with quality, reliable and affordable products together with excellent after-sales service and maintenance.',
-  established: '2011',
+  established: '2006',
 }
 
 export const productOfferings = [

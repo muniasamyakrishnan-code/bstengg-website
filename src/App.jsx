@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Products from './pages/Products'
 import SpareParts from './pages/SpareParts'
 import NewMachines from './pages/NewMachines'
+import PaddingBelting from './pages/PaddingBelting'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/spare-parts" element={<SpareParts />} />
           <Route path="/new-machines" element={<NewMachines />} />
+          <Route path="/padding-belting" element={<PaddingBelting />} />
         </Routes>
       </main>
       <Footer />

@@ -5,7 +5,7 @@ import { useReveal } from '../hooks/useReveal'
 import { useCounter } from '../hooks/useCounter'
 
 const STATS = [
-  { val: '15+', label: 'Years in Malaysia' },
+  { val: '20+', label: 'Years in Malaysia' },
   { val: '30+', label: 'Hotel Clients' },
   { val: '10+', label: 'Brands Serviced' },
   { val: '24/7', label: 'Emergency Support' },

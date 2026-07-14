@@ -4,11 +4,11 @@ import { NavLink, Link } from 'react-router-dom'
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
-  { to: '/services', label: 'Services' },
+  { to: '/services', label: 'Repair & Service' },
   { to: '/new-machines', label: 'New Machines' },
   { to: '/spare-parts', label: 'Spare parts' },
+  { to: '/padding-belting', label: 'Padding & Belting' },
   { to: '/products', label: 'Products' },
-  { to: '/customers', label: 'Customers' },
   { to: '/contact', label: 'Contact' },
 ]
 
