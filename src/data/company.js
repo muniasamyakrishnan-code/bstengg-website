@@ -11,7 +11,7 @@ export const provider = {
   invoiceTerms: 'Net 30 days after invoice date',
   tagline: 'One Stop Solution for Your Laundry Business',
   description:
-    'Best Sun Tech Engineering Sdn Bhd is a well-established specialist in commercial and industrial laundry equipment, spare parts supply and engineering services in Malaysia since 2006. We provide technical services and world-leading equipment from top global brands for 5-star hotels, resorts, commercial laundry operators and industrial clients across Malaysia.',
+    'Best Sun Tech Engineering Private Limited is a well-established company dealing with laundry machines and spare parts, with over 20 years of industry experience. Registered in India (GSTIN: 33AANCB0327K1ZS | IEC: AANCB0327K) and headquartered in Madurai, Tamil Nadu, we provide technical services and world-leading industrial and commercial laundry equipment for hotels, large laundry plants and commercial laundry outlets.',
   mission:
     'We strive to provide our customers with quality, reliable and affordable products together with excellent after-sales service and maintenance.',
   established: '2006',
@@ -37,12 +37,16 @@ export const productOfferings = [
 export const availableBrands = ['IPSO', 'Electrolux', 'Huebsch', 'Cissell', 'Girbau', 'Pony', 'Realstar', 'Earlstar', 'ADC', 'Rema']
 
 export const providerIN = {
-  name: 'Best Sun Tech Engineering Pvt Ltd',
+  name: 'Best Sun Tech Engineering Private Limited',
   gstin: '33AANCB0327K1ZS',
-  address: 'Flat No.184, Senthoor Nagar, Manjampatti Village, Natham Main Road, Madurai - 625014, Tamil Nadu, India',
+  iec: 'AANCB0327K',
+  pan: 'AANCB0327K',
+  address: '321, Vijay nagar, Natham Main road, manendal, Madurai - 625014, Tamil Nadu, India',
   hp: '+91 86376 15010',
   tel: '+91 82484 75435',
   email: 'bstengg@yahoo.com',
+  description:
+    'Best Sun Tech Engineering Private Limited is a Private Limited Company registered in India (GSTIN: 33AANCB0327K1ZS) and authorised for international trade under IEC: AANCB0327K. Headquartered in Madurai, Tamil Nadu, we specialise in commercial and industrial laundry equipment, spare parts supply, and engineering services. Our operations support clients across India with technical expertise and world-leading equipment from top global brands.',
 }
 
 export function getProvider(branch) {

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { provider, productOfferings } from '../data/company'
+import { provider, providerIN, productOfferings } from '../data/company'
 import { customerCategories } from '../data/customers'
 import { useReveal } from '../hooks/useReveal'
 import { useCounter } from '../hooks/useCounter'
@@ -72,16 +72,19 @@ export default function About() {
             <h2 style={sectionH2}>Who We Are</h2>
             <p style={bodyText}>{provider.description}</p>
             <p style={{ ...bodyText, marginTop: 16 }}>
-              Our team specialises in preventive maintenance, emergency breakdown repairs, steam pipe works,
-              press machine servicing, and the supply of genuine spare parts and chemicals for all major brands.
-              We hold SST registration and issue compliant e-invoices for all government and corporate clients.
+              Our company currently provides technical services, world-leading industrial and commercial laundry
+              equipment for various hotels, large laundry plants and commercial laundry outlets. We strive to
+              supply laundry equipment that accommodates the needs and requirements of our valued customers.
+            </p>
+            <p style={{ ...bodyText, marginTop: 16 }}>
+              We assure you of our prompt and reliable service at all times as we have a dedicated and
+              experienced technical team to support our customer's needs.
             </p>
             <div style={highlights} className="about-highlights">
               {[
                 ['🏢', 'Established', provider.established],
-                ['📋', 'BRN', provider.brn],
-                ['🔖', 'SST No', provider.sst],
-                ['💼', 'Supplier TIN', provider.tin],
+                ['🇮🇳', 'GSTIN (India)', '33AANCB0327K1ZS'],
+                ['📦', 'IEC (India)', 'AANCB0327K'],
               ].map(([icon, label, val]) => (
                 <div key={label} style={highlight}>
                   <span style={hiIcon}>{icon}</span>
@@ -98,13 +101,12 @@ export default function About() {
             <div style={infoCard}>
               <h3 style={cardTitle}>Contact Details</h3>
               {[
-                ['Company', provider.name],
-                ['BRN', provider.brn],
-                ['Supplier TIN', provider.tin],
-                ['SST No', provider.sst],
-                ['HP / WhatsApp', provider.hp],
-                ['Office Tel', provider.tel],
-                ['Fax', provider.fax],
+                ['Company', providerIN.name],
+                ['GSTIN', providerIN.gstin],
+                ['IEC', providerIN.iec],
+                ['PAN', providerIN.pan],
+                ['HP / WhatsApp', providerIN.hp],
+                ['Office Tel', providerIN.tel],
               ].map(([label, val]) => (
                 <div key={label} style={infoRow}>
                   <span style={infoLabel}>{label}</span>
@@ -113,14 +115,14 @@ export default function About() {
               ))}
               <div style={{ ...infoRow, borderBottom: 'none' }}>
                 <span style={infoLabel}>Email</span>
-                <span style={{ ...infoVal, color: '#1a5aaf' }}>{provider.email}</span>
+                <span style={{ ...infoVal, color: '#1a5aaf' }}>{providerIN.email}</span>
               </div>
             </div>
 
             <div style={{ ...infoCard, marginTop: 20, borderLeft: '4px solid #c8993a' }}>
               <h3 style={cardTitle}>Our Address</h3>
               <p style={{ fontSize: '0.9rem', color: '#1a3c6e', fontWeight: 500, lineHeight: 1.6 }}>
-                {provider.address}
+                {providerIN.address}
               </p>
             </div>
 
