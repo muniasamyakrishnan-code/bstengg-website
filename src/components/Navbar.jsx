@@ -136,8 +136,8 @@ export default function Navbar() {
           </div>
 
           {/* CTA */}
-          <a href="tel:+60192829180" className="nav-cta-btn">
-            📞 019-2829180
+          <a href="tel:+918637615010" className="nav-cta-btn">
+            📞 +91 86376 15010
           </a>
 
           {/* Mobile hamburger */}
@@ -172,7 +172,7 @@ export default function Navbar() {
             ))}
             <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               <a
-                href="tel:+60192829180"
+                href="tel:+918637615010"
                 style={{
                   display: 'block',
                   textAlign: 'center',
@@ -185,7 +185,7 @@ export default function Navbar() {
                   textDecoration: 'none',
                 }}
               >
-                📞 Call 019-2829180
+                📞 Call +91 86376 15010
               </a>
             </div>
           </div>
