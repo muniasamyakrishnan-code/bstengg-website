@@ -242,20 +242,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Machine photo strip */}
-          <div style={s.machineStrip} className="home-machine-strip reveal">
-            {[
-              '/images/machine-05.jpg',
-              '/images/machine-06.jpg',
-              '/images/machine-02.jpg',
-              '/images/machine-07.jpg',
-            ].map((src, i) => (
-              <div key={i} style={s.machineThumb} className="hover-lift">
-                <img src={src} alt={`Commercial laundry equipment ${i + 1}`} style={s.machineImg} />
-              </div>
-            ))}
-          </div>
-
           {/* Hotel names grid */}
           <div style={s.hotelGrid}>
             {featuredHotels.map((name, i) => (

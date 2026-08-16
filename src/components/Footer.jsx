@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { provider } from '../data/company'
+import { providerIN } from '../data/company'
 
 export default function Footer() {
   const year = new Date().getFullYear()
-  const waNumber = `60${provider.hp.replace(/[^0-9]/g, '').replace(/^0/, '')}`
+  const waNumber = `91${providerIN.hp.replace(/[^0-9]/g, '').replace(/^(\+91|91)/, '')}`
 
   return (
     <footer style={s.footer}>
@@ -20,13 +20,12 @@ export default function Footer() {
               <span style={s.brandName}>Best Sun Tech Engineering</span>
             </div>
             <p style={s.brandDesc}>
-              Malaysia's specialist for commercial &amp; industrial laundry equipment —
-              maintenance, repair, spare parts &amp; engineering services since {provider.established}.
+              India's specialist for commercial &amp; industrial laundry equipment —
+              supply, maintenance, repair, spare parts &amp; engineering services.
             </p>
             <div style={s.reg}>
-              <span>BRN: {provider.brn}</span>
-              <span>SST: {provider.sst}</span>
-              <span>TIN: {provider.tin}</span>
+              <span>GSTIN: {providerIN.gstin}</span>
+              <span>IEC: {providerIN.iec}</span>
             </div>
             <div style={s.actions}>
               <a
@@ -85,33 +84,27 @@ export default function Footer() {
             <div style={s.contactList}>
               <div style={s.contactItem}>
                 <span style={s.icon}>📍</span>
-                <span>{provider.address}</span>
+                <span>{providerIN.address}</span>
               </div>
               <div style={s.contactItem}>
                 <span style={s.icon}>📱</span>
-                <a href={`tel:${provider.hp}`} style={s.contactLink}>{provider.hp}</a>
+                <a href={`tel:${providerIN.hp}`} style={s.contactLink}>{providerIN.hp}</a>
               </div>
               <div style={s.contactItem}>
                 <span style={s.icon}>☎️</span>
-                <a href={`tel:${provider.tel}`} style={s.contactLink}>{provider.tel}</a>
+                <a href={`tel:${providerIN.tel}`} style={s.contactLink}>{providerIN.tel}</a>
               </div>
-              {provider.fax && (
-                <div style={s.contactItem}>
-                  <span style={s.icon}>📠</span>
-                  <span style={{ opacity: 0.75 }}>Fax: {provider.fax}</span>
-                </div>
-              )}
               <div style={s.contactItem}>
                 <span style={s.icon}>✉️</span>
-                <a href={`mailto:${provider.email}`} style={s.contactLink}>{provider.email}</a>
+                <a href={`mailto:${providerIN.email}`} style={s.contactLink}>{providerIN.email}</a>
               </div>
             </div>
           </div>
         </div>
 
         <div style={s.bottom}>
-          <span>© {year} Best Sun Tech Engineering Sdn Bhd · All rights reserved.</span>
-          <span style={s.tagline}>{provider.tagline}</span>
+          <span>© {year} Best Sun Tech Engineering Private Limited · All rights reserved.</span>
+          <span style={s.tagline}>One Stop Solution for Your Laundry Business</span>
         </div>
       </div>
     </footer>
