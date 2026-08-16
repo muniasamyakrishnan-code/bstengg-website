@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { provider } from '../data/company'
+import { providerIN } from '../data/company'
 import { useReveal } from '../hooks/useReveal'
 
 // NOTE FOR DEPLOYMENT:
@@ -72,29 +72,28 @@ export default function Contact() {
                 <div style={infoIconWrap}>📍</div>
                 <div>
                   <div style={infoLabel}>Our Address</div>
-                  <div style={infoVal}>{provider.address}</div>
+                  <div style={infoVal}>{providerIN.address}</div>
                 </div>
               </div>
               <div style={infoCard}>
                 <div style={infoIconWrap}>📱</div>
                 <div>
                   <div style={infoLabel}>Mobile / WhatsApp</div>
-                  <a href={`tel:${provider.hp}`} style={infoLink}>{provider.hp}</a>
+                  <a href={`tel:${providerIN.hp}`} style={infoLink}>{providerIN.hp}</a>
                 </div>
               </div>
               <div style={infoCard}>
                 <div style={infoIconWrap}>☎️</div>
                 <div>
                   <div style={infoLabel}>Office Tel</div>
-                  <a href={`tel:${provider.tel}`} style={infoLink}>{provider.tel}</a>
-                  {provider.fax && <div style={{ fontSize: '0.82rem', color: '#5a6272', marginTop: 4 }}>Fax: {provider.fax}</div>}
+                  <a href={`tel:${providerIN.tel}`} style={infoLink}>{providerIN.tel}</a>
                 </div>
               </div>
               <div style={infoCard}>
                 <div style={infoIconWrap}>✉️</div>
                 <div>
                   <div style={infoLabel}>Email</div>
-                  <a href={`mailto:${provider.email}`} style={infoLink}>{provider.email}</a>
+                  <a href={`mailto:${providerIN.email}`} style={infoLink}>{providerIN.email}</a>
                 </div>
               </div>
             </div>
@@ -102,9 +101,8 @@ export default function Contact() {
             <div style={regBox}>
               <div style={regTitle}>Registration Details</div>
               {[
-                ['BRN', provider.brn],
-                ['Supplier TIN', provider.tin],
-                ['SST No', provider.sst],
+                ['GSTIN', providerIN.gstin],
+                ['IEC', providerIN.iec],
               ].map(([label, val]) => (
                 <div key={label} style={regRow}>
                   <span style={regLabel}>{label}</span>

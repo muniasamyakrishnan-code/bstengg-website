@@ -145,22 +145,81 @@ export default function About() {
           <span style={tag}>Our Equipment</span>
           <h2 style={sectionH2}>Commercial Laundry Equipment</h2>
           <p style={{ ...bodyText, marginBottom: 28 }}>
-            We service, maintain and supply world-leading commercial and industrial laundry equipment.
-            From washers and dryers to flatwork ironers, press machines and dry-cleaning systems —
-            we keep your operations running at peak performance.
+            We supply world-leading commercial and industrial laundry equipment from Yasen and other top global brands.
+            From integrated washing systems, flatwork ironers and press machines to dry-cleaning systems and garment finishers —
+            we deliver complete laundry solutions for hotels, hospitals, and industrial laundry plants.
           </p>
+
+          {/* Factory Photos */}
+          <h3 style={equipSubHead}>Our Factory &amp; Team</h3>
           <div style={photoGrid} className="about-photo-grid">
             {[
-              { src: '/images/machine-05.jpg', alt: 'Hotel flatwork ironer in operation' },
-              { src: '/images/machine-06.jpg', alt: 'Ironing & pressing tables' },
-              { src: '/images/machine-07.jpg', alt: 'BST Engineering branded machine' },
-              { src: '/images/machine-02.jpg', alt: 'Commercial laundry equipment' },
-              { src: '/images/machine-01.jpg', alt: 'Industrial washing machines' },
-              { src: '/images/machine-03.jpg', alt: 'Commercial laundry equipment' },
+              { src: '/images/yasen/factory-workers.jpeg', alt: 'Engineers assembling industrial washing machines' },
+              { src: '/images/yasen/factory-workers-2.jpeg', alt: 'Technical team at Yasen factory' },
+              { src: '/images/yasen/workers-assembly.jpeg', alt: 'Workers installing commercial laundry equipment' },
             ].map((item, i) => (
               <div key={i} style={photoCard} className={`reveal delay-${i + 1}`}>
                 <img src={item.src} alt={item.alt} style={photoImg} />
                 <div style={photoOverlay} />
+              </div>
+            ))}
+          </div>
+
+          {/* Product Categories */}
+          <h3 style={{ ...equipSubHead, marginTop: 40 }}>Washing &amp; Integrated Systems</h3>
+          <div style={productGrid} className="about-photo-grid">
+            {[
+              { src: '/images/yasen/integrated-laundry-system.png', alt: 'IWS Integrated Laundry System', label: 'IWS Integrated Laundry System' },
+              { src: '/images/yasen/iws-system.png', alt: 'IWS Washing System Layout', label: 'IWS Washing System' },
+              { src: '/images/yasen/iws-control-panel.png', alt: 'IWS Integrated Control Panel', label: 'IWS Control Panel' },
+              { src: '/images/yasen/barrier-washer.png', alt: 'Barrier Washing Machine', label: 'Barrier Washer' },
+              { src: '/images/yasen/pump-system.png', alt: 'Industrial Pump System', label: 'Pump System' },
+              { src: '/images/yasen/dry-cleaning-machine.png', alt: 'Dry Cleaning Machine', label: 'Dry Cleaning Machine' },
+            ].map((item, i) => (
+              <div key={i} style={productCard} className={`reveal delay-${(i % 6) + 1}`}>
+                <div style={productImgWrap}>
+                  <img src={item.src} alt={item.alt} style={productImg} />
+                </div>
+                <div style={productLabel}>{item.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <h3 style={{ ...equipSubHead, marginTop: 40 }}>Ironing &amp; Finishing Equipment</h3>
+          <div style={productGrid} className="about-photo-grid">
+            {[
+              { src: '/images/yasen/flatwork-ironer.png', alt: 'Flatwork Ironer', label: 'Flatwork Ironer' },
+              { src: '/images/yasen/chest-flatwork-ironer.png', alt: 'High Speed Chest Flatwork Ironer', label: 'High Speed Chest Flatwork Ironer' },
+              { src: '/images/yasen/folding-machine.png', alt: 'Sheet Folding Machine', label: 'Sheet Folding Machine' },
+              { src: '/images/yasen/ironing-table.png', alt: 'Advanced Ironing Table', label: 'Advanced Ironing Table' },
+              { src: '/images/yasen/press-machine.png', alt: 'Automatic Press Machine', label: 'Automatic Press Machine' },
+              { src: '/images/yasen/uniform-press.png', alt: 'Uniform Universal Press', label: 'Uniform Universal Press' },
+              { src: '/images/yasen/shoulder-press.png', alt: 'Shoulder Press Machine', label: 'Shoulder Press Machine' },
+              { src: '/images/yasen/garment-finisher.png', alt: 'Garment Form Finisher', label: 'Garment Form Finisher' },
+            ].map((item, i) => (
+              <div key={i} style={productCard} className={`reveal delay-${(i % 6) + 1}`}>
+                <div style={productImgWrap}>
+                  <img src={item.src} alt={item.alt} style={productImg} />
+                </div>
+                <div style={productLabel}>{item.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <h3 style={{ ...equipSubHead, marginTop: 40 }}>Conveying &amp; Support Systems</h3>
+          <div style={productGrid} className="about-photo-grid">
+            {[
+              { src: '/images/yasen/conveyor-belt.png', alt: 'Conveyor Belt System', label: 'Conveyor Belt System' },
+              { src: '/images/yasen/conveyor-rail.png', alt: 'Conveyor Rail System', label: 'Conveyor Rail System' },
+              { src: '/images/yasen/sorting-conveyor.png', alt: 'Laundry Sorting Conveyor', label: 'Sorting Conveyor' },
+              { src: '/images/yasen/storage-tank.png', alt: 'Storage Tank / Silo', label: 'Storage Tank' },
+              { src: '/images/yasen/steam-iron-station.png', alt: 'Steam Iron Station', label: 'Steam Iron Station' },
+            ].map((item, i) => (
+              <div key={i} style={productCard} className={`reveal delay-${(i % 6) + 1}`}>
+                <div style={productImgWrap}>
+                  <img src={item.src} alt={item.alt} style={productImg} />
+                </div>
+                <div style={productLabel}>{item.label}</div>
               </div>
             ))}
           </div>
@@ -302,6 +361,13 @@ const photoGrid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minm
 const photoCard = { borderRadius: 14, overflow: 'hidden', boxShadow: '0 8px 28px rgba(0,0,0,0.12)', aspectRatio: '4/3', position: 'relative', cursor: 'pointer' }
 const photoImg = { width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }
 const photoOverlay = { position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,20,50,0.3) 0%, transparent 60%)', pointerEvents: 'none' }
+
+const equipSubHead = { fontSize: '1.1rem', fontWeight: 700, color: '#1a3c6e', marginBottom: 16, paddingBottom: 8, borderBottom: '2px solid rgba(200,153,58,0.3)' }
+const productGrid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }
+const productCard = { background: '#fff', borderRadius: 12, boxShadow: '0 4px 16px rgba(0,0,0,0.08)', overflow: 'hidden', border: '1px solid rgba(26,60,110,0.06)', transition: 'transform 0.2s, box-shadow 0.2s', cursor: 'pointer' }
+const productImgWrap = { background: '#f8faff', display: 'flex', alignItems: 'center', justifyContent: 'center', height: 180, padding: 12 }
+const productImg = { maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }
+const productLabel = { fontSize: '0.8rem', fontWeight: 600, color: '#1a3c6e', textAlign: 'center', padding: '10px 12px', background: '#fff', borderTop: '1px solid #f0f0f0' }
 
 const missionCard = { background: 'linear-gradient(135deg, #f8faff 0%, #f0f4fb 100%)', borderRadius: 16, padding: '36px 40px', borderLeft: '5px solid #c8993a', boxShadow: '0 4px 20px rgba(0,0,0,0.06)', position: 'relative', maxWidth: 820 }
 const missionQuoteIcon = { position: 'absolute', top: 16, left: 24, fontSize: '4rem', color: 'rgba(200,153,58,0.18)', lineHeight: 1, fontFamily: 'Georgia, serif', fontWeight: 900 }
