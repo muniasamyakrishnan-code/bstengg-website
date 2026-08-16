@@ -28,14 +28,15 @@ export default function Navbar() {
     <>
       <style>{`
         .nav-link-item {
-          padding: 8px 14px;
+          padding: 6px 9px;
           border-radius: 8px;
-          font-size: 0.88rem;
+          font-size: 0.8rem;
           font-weight: 500;
           transition: all 0.2s;
           text-decoration: none;
           border-bottom: 2px solid transparent;
           letter-spacing: 0.01em;
+          white-space: nowrap;
         }
         .nav-link-item:hover {
           background: rgba(255,255,255,0.08);
@@ -113,7 +114,7 @@ export default function Navbar() {
             <img src="/logo.png" alt="Best Sun Tech Logo" style={styles.logoImg} />
             <span style={styles.logoText}>
               Best Sun Tech
-              <span style={styles.logoSub}>Engineering Sdn Bhd</span>
+              <span style={styles.logoSub}>Engineering Pvt Ltd</span>
             </span>
           </Link>
 
@@ -241,10 +242,11 @@ const styles = {
   },
   links: {
     display: 'flex',
-    gap: 2,
+    gap: 0,
     flex: 1,
     alignItems: 'center',
-    flexWrap: 'wrap',
+    flexWrap: 'nowrap',
+    overflow: 'hidden',
   },
   mobileMenu: {
     background: 'rgba(8,18,45,0.97)',
